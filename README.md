@@ -52,18 +52,20 @@ To leave psql enter
 To create table "User" in the database enter the following command from psql:
 
 ```
-CREATE TABLE public."user"
+CREATE TABLE public."User"
 (
-   id serial,
-   name character varying,
-   email character varying,
-   PRIMARY KEY (id)
+    id serial,
+    name character varying,
+    email character varying,
+    PRIMARY KEY (id)
 )
 WITH (
-   OIDS = FALSE
+    OIDS = FALSE
 )
 TABLESPACE pg_default;
-ALTER TABLE public."user"
+
+ALTER TABLE public."User"
+    OWNER to iuslab;
 ```
 
 To show records from User table run the following query in psql:
