@@ -34,7 +34,7 @@ CREATE USER iuslab WITH
 To create database from the comand line (CLI) enter the following command:
 
 ```
-CREATEDB CS416_DB
+createdb CS416_DB
 ```
 
 To connect psql to the database enter the following command:
