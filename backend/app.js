@@ -1,7 +1,23 @@
 const express = require('express')
 const app = express()
+let bodyParser = require('body-parser')
+let cors = require('cors')
 
 var User = require('./user')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.text())
+app.use(bodyParser.json({type: 'application/json'}))
+app.use(cors())
+
+// in NodeJS/Express (server)
+app.all('/*', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Access-Control-Allow-Headers')
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
+  next()
+})
 
 app.get('/users', (req, res) => {
 	User.all()
