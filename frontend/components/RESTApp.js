@@ -13,7 +13,10 @@ class RESTApp extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+<<<<<<< HEAD
     this.handleSubmit2 = this.handleSubmit2.bind(this);
+=======
+>>>>>>> master
   }
 
   handleClick () {
@@ -34,6 +37,7 @@ class RESTApp extends Component {
      .then(response => this.setState({users: response.data}))
  }
 
+<<<<<<< HEAD
  handleSubmit2(event) {
   event.preventDefault();
   let email = event.target.email.value
@@ -61,6 +65,18 @@ class RESTApp extends Component {
          <input id="email" type="text" name="email" />
          <input type="submit" name="Filter by email" />
        </form>
+=======
+  render () {
+    return (
+      <div>
+       <button className='button' onClick={this.handleClick}>Show all users</button>
+       <br/>
+       <form onSubmit={this.handleSubmit}>
+         <label htmlFor="name">Enter the name to search</label>
+         <input id="name" type="text" name="name" />
+         <input type="submit" name="Filter by name" />
+       </form>
+>>>>>>> master
        <table>
         <thead>
          <tr>

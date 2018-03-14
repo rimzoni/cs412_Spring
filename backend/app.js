@@ -45,6 +45,7 @@ app.get('/userByName', (req, res) => {
         message: err.message}});
 		  })
 })
+<<<<<<< HEAD
 
 app.get('/userByEmail', (req, res) => {
   //console.log(req.query.name)
@@ -61,6 +62,8 @@ app.get('/userByEmail', (req, res) => {
 })
 
 
+=======
+>>>>>>> master
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
