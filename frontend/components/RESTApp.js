@@ -11,6 +11,9 @@ class RESTApp extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClear = this.handleClear.bind(this);
+    this.handleSubmit2 = this.handleSubmit2.bind(this);
   }
 
   handleClick () {
@@ -19,10 +22,45 @@ class RESTApp extends Component {
         //.then(response => console.log(response))
   }
 
+  handleClear () {
+    this.setState({users: []  })
+  }
+
+  handleSubmit(event) {
+   event.preventDefault();
+   let name = event.target.name.value
+   console.log(name)
+  axios.get('http://localhost:3000/userByName?name='+ name, { "name" : name } )
+     .then(response => this.setState({users: response.data}))
+ }
+
+ handleSubmit2(event) {
+  event.preventDefault();
+  let email = event.target.email.value
+  console.log(email)
+ axios.get('http://localhost:3000/userByEmail?email='+ email, { "email" : email } )
+    .then(response => {
+      this.setState({users: response.data});
+    });
+}
+
+
   render () {
     return (
       <div>
-       <button className='button' onClick={this.handleClick}>Click Me</button>
+       <button className='button' onClick={this.handleClick}>Show all Users</button>
+       <br/>
+       <form onSubmit={this.handleSubmit}>
+         <label htmlFor="name">Enter name to search</label>
+         <input id="name" type="text" name="name" />
+         <input type="submit" name="Filter by name" />
+       </form>
+       <br/>
+       <form onSubmit={this.handleSubmit2}>
+         <label htmlFor="email">Enter email to search</label>
+         <input id="email" type="text" name="email" />
+         <input type="submit" name="Filter by email" />
+       </form>
        <table>
         <thead>
          <tr>

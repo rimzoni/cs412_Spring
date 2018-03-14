@@ -7,7 +7,10 @@ class User extends bookshelf.model.Model {
     return this.forge().fetchAll()
   }
   static byName(name) {
-    return this.forge().query({where:{ 'Name': name }}).fetchAll()
+    return this.forge().query({where:{ 'User.name': name }}).fetchAll()
+  }
+  static byEmail(email) {
+    return this.forge().query({where:{ 'User.email': email }}).fetchAll()
   }
 }
 module.exports = User
