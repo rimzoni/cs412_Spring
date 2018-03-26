@@ -45,6 +45,20 @@ app.get('/userByName', (req, res) => {
         message: err.message}});
 		  })
 })
+app.get('/userById', (req, res) => {
+	console.log(req.query.id);
+  let userId = req.query.id
+  User.forge({id: userId}).fetch().then(function (users) {
+    if (!users) {
+      return res.status(404).json({ error: true, message: 'user not found' })
+    } else {
+      res.status(200).json(users)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
 app.post('/user/create', (req, res) => {
 	console.log(req.body);
   let user = {

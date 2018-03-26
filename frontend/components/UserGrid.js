@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 //import './App.css'
 
 import axios from 'axios'
 
-class RESTApp extends Component {
+class UserGrid extends Component {
   constructor () {
     super()
     this.state = {
@@ -49,6 +50,7 @@ class RESTApp extends Component {
           <th>Id</th>
           <th>Name</th>
           <th>Email</th>
+          <th>Action</th>
          </tr>
         </thead>
         <tbody>
@@ -58,6 +60,7 @@ class RESTApp extends Component {
                         <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
+                        <td><Link to={'/user/'+user.id}>edit</Link></td>
                       </tr>
                     )
                    })
@@ -68,4 +71,4 @@ class RESTApp extends Component {
     )
   }
 }
-export default RESTApp
+export default UserGrid
