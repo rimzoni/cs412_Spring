@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
-
+import Header from './Header'
 import axios from 'axios'
 
 class UserGrid extends Component {
@@ -37,6 +37,7 @@ class UserGrid extends Component {
   render () {
     return (
       <div>
+      <Header />
        <button className='button' onClick={this.handleClick}>Show all users</button>
        <br/>
        <form onSubmit={this.handleSubmit}>

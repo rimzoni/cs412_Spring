@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import axios from 'axios'
+import Header from './Header'
 
 class UserDetail extends Component {
   constructor () {
@@ -21,6 +22,7 @@ class UserDetail extends Component {
     render () {
       return (
         <div>
+        <Header />
          I am User detail {this.state.user.name}
         </div>
      )
