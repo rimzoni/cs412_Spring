@@ -3,7 +3,7 @@ const app = express()
 let bodyParser = require('body-parser')
 let cors = require('cors')
 
-var User = require('./user')
+var Department = require('./department')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -19,11 +19,11 @@ app.all('/*', (req, res, next) => {
   next()
 })
 
-app.get('/users', (req, res) => {
-	User.all()
-		.then(function (users) {
+app.get('/departments', (req, res) => {
+	Department.all()
+		.then(function (departments) {
 		  res.status(200)
-			.json(users)
+			.json(departments)
 		})
 		.catch(function (err) {
 			console.log(err)
@@ -32,12 +32,11 @@ app.get('/users', (req, res) => {
 		  })
 })
 
-app.get('/userByName', (req, res) => {
-  //console.log(req.query.name)
-  User.byName(req.query.name)
-		.then(function (users) {
+app.get('/managerByDepartment', (req, res) => {
+  Department.byDepartment(req.query.department)
+		.then(function (departments) {
 		  res.status(200)
-			.json(users)
+			.json(departments)
 		})
 		.catch(function (err) {
 			console.log(err)
@@ -46,12 +45,11 @@ app.get('/userByName', (req, res) => {
 		  })
 })
 
-app.get('/userByEmail', (req, res) => {
-  //console.log(req.query.name)
-  User.byEmail(req.query.email)
-		.then(function (users) {
+app.get('/departmentById', (req, res) => {
+  Department.byId(req.query.id)
+		.then(function (departments) {
 		  res.status(200)
-			.json(users)
+			.json(departments)
 		})
 		.catch(function (err) {
 			console.log(err)
@@ -59,7 +57,6 @@ app.get('/userByEmail', (req, res) => {
         message: err.message}});
 		  })
 })
-
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
