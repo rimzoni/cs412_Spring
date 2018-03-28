@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import UserGrid from './components/UserGrid'
+import u150302007Grid from './components/u150302007Grid'
 import UserDetail from './components/UserDetail'
 import Dashboard from './components/Dashboard'
 import Custom from './components/Custom'
@@ -15,6 +16,7 @@ const router = (
           <div>
           <Route location={location} path='/' exact component={Dashboard} />
           <Route location={location} path='/users' exact component={UserGrid} />
+          <Route location={location} path='/rows' exact component={u150302007Grid} />
           <Route location={location} path='/user/:userId' exact component={UserDetail} />
 
           <Route location={location} path='/custom' exact component={Custom} />

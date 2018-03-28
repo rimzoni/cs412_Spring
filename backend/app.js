@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var Model150302007 = require('./model150302007')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -17,6 +18,48 @@ app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Access-Control-Allow-Headers')
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
   next()
+})
+
+app.get('/rows', (req, res) => {
+  Model150302007.all()
+    .then(function (rows) {
+      res.status(200)
+      .json(rows)
+    })
+    .catch(function (err) {
+      console.log(err)
+      res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+      })
+})
+
+app.get('/rowByDepartment', (req, res) => {
+  //console.log(req.query.name)
+  Model150302007.byName(req.query.department)
+    .then(function (rows) {
+      res.status(200)
+      .json(rows)
+    })
+    .catch(function (err) {
+      console.log(err)
+      res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+      })
+})
+
+app.get('/rowById', (req, res) => {
+  console.log(req.query.id);
+  let rowId = req.query.id
+  Model150302007.forge({id: rowId}).fetch().then(function (rows) {
+    if (!rows) {
+      return res.status(404).json({ error: true, message: 'row not found' })
+    } else {
+      res.status(200).json(rows)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
 })
 
 app.get('/users', (req, res) => {

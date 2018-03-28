@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Header from './Header'
 
-
-class Header extends Component {
+class u150302007Grid extends Component {
 
     render () {
       return (
         <div>
-          <li>
-            <Link to="/">Dashboard</Link>
-          </li>
+        <Header />
+          <h3>
+            u150302007Grid page
+          </h3>
+          <p> If you want to go back use links bellow</p>
           <li>
             <Link to="/users">Users</Link>
           </li>
           <li>
             <Link to="/custom">Custom</Link>
           </li>
-          <li>
-            <Link to="/rows">u150302007Grid</Link>
-          </li>
        </div>
      )
    }
  }
- export default Header
+ export default u150302007Grid
