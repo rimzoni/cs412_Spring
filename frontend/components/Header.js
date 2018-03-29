@@ -7,15 +7,9 @@ class Header extends Component {
     render () {
       return (
         <div>
-          <li>
-            <Link to="/">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/custom">Custom</Link>
-          </li>
+        <h3>Welcome to the Grid Project 1</h3>
+        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="/departments">Departments</Link></li>
        </div>
      )
    }
