@@ -11,10 +11,7 @@ class Header extends Component {
             <Link to="/">Dashboard</Link>
           </li>
           <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/custom">Custom</Link>
+            <Link to="/department">department</Link>
           </li>
        </div>
      )
