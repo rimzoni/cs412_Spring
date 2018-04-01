@@ -19,11 +19,11 @@ app.all('/*', (req, res, next) => {
   next()
 })
 
-app.get('/users', (req, res) => {
+app.get('/rows', (req, res) => {
 	User.all()
-		.then(function (users) {
+		.then(function (rows) {
 		  res.status(200)
-			.json(users)
+			.json(rows)
 		})
 		.catch(function (err) {
 			console.log(err)
@@ -31,6 +31,33 @@ app.get('/users', (req, res) => {
         message: err.message}});
 		  })
 })
-app.get('/', (req, res) => res.send('Hello World!'))
+
+app.get('/rowbyDepartment', (req, res) => {
+  User.byDepartment(req.query.department)
+		.then(function (row) {
+		  res.status(200)
+			.json(row)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/rowbyId', (req, res) => {
+  User.byId(req.query.id)
+		.then(function (rows) {
+		  res.status(200)
+			.json(rows)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/', (req, res) => res.send('CS412_Project_1 - Tajib Smajlović_140302097!'))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

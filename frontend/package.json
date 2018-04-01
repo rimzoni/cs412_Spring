@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/rimzoni/cs412_Spring.git"
   },
-  "author": "cs412 class",
+  "author": "TajibPC",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rimzoni/cs412_Spring/issues"
@@ -19,8 +19,11 @@
   "homepage": "https://github.com/rimzoni/cs412_Spring#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "pg": "^7.4.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
