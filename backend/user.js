@@ -1,13 +1,17 @@
 let bookshelf = require('./db')
-class User extends bookshelf.model.Model {
+class Department extends bookshelf.model.Model {
   get tableName () {
-    return 'User'
+    return 'TajibPC'
   }
   static all () {
     return this.forge().fetchAll()
   }
-  static byName(name) {
-    return this.forge().query({where:{ 'Name': name }}).fetchAll()
+  static byDepartment(department) {
+    return this.forge().query({where:{ 'TajibPC.department': department }}).fetchAll()
+  }
+
+  static byId(id) {
+    return this.forge().query({where:{ 'TajibPC.id': id }}).fetchAll()
   }
 }
-module.exports = User
+module.exports = Department
