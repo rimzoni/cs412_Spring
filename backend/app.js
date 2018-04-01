@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var model = require('./model')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -31,7 +32,27 @@ app.get('/users', (req, res) => {
         message: err.message}});
 		  })
 })
+app.get("/all", function(req,res){
+   model.all().then(function (models) {
+      res.status(200)
+      .json(models);
+    }); 
+});
 
+app.get("/byDepartment" , function(req,res){
+  model.byDepartment(req.query.department).then(function(models){
+    console.log("department: " + req.query.department); 
+    res.status(200).json(models); 
+  });
+    
+});
+
+app.get("/byID" , function(req,res){
+    
+    model.byID(req.query.id).then(function(models){
+       res.status(200).json(models); 
+    });
+});
 app.get('/userByName', (req, res) => {
   //console.log(req.query.name)
   User.byName(req.query.name)

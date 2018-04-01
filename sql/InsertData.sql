@@ -1,0 +1,5 @@
+INSERT INTO public."160302174" VALUES(1,'IT','john');
+INSERT INTO public."160302174" VALUES(2,'HR','Melanie');
+INSERT INTO public."160302174" VALUES(3,'SE','Martin');
+INSERT INTO public."160302174" VALUES(4,'CS','Kevin');
+INSERT INTO public."160302174" VALUES(5,'VACD','Lisa'); 
