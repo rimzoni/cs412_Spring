@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var S140302058 =  require ('./140302058')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -18,6 +19,50 @@ app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
   next()
 })
+
+
+app.get('/140302058s', (req, res) => {
+	S140302058.all()
+		.then(function (S140302058) {
+		  res.status(200)
+			.json(S140302058)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/140302058ById', (req, res) => {
+	console.log(req.query.id);
+  let sId = req.query.id
+  S140302058.forge({id: sId}).fetch().then(function (S140302058) {
+    if (!S140302058) {
+      return res.status(404).json({ error: true, message: 'S140302058 not found' })
+    } else {
+      res.status(200).json(S140302058)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
+app.get('/140302058byDepartment', (req, res) => {
+  console.log(req.query.department)
+  S140302058.byDepartment(req.query.department)
+		.then(function (S140302058) {
+		  res.status(200)
+			.json(S140302058)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
 
 app.get('/users', (req, res) => {
 	User.all()
@@ -45,6 +90,7 @@ app.get('/userByName', (req, res) => {
         message: err.message}});
 		  })
 })
+
 app.get('/userById', (req, res) => {
 	console.log(req.query.id);
   let userId = req.query.id
