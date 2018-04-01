@@ -1,8 +1,8 @@
-CREATE TABLE public."User"
+CREATE TABLE public."s140302148"
 (
     id serial,
-    name character varying,
-    email character varying,
+    department character varying,
+    manager character varying,
     PRIMARY KEY (id)
 )
 WITH (
@@ -10,5 +10,5 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."User"
-    OWNER to iuslab;
+ALTER TABLE public."s140302148"
+    OWNER to cs412_user;
