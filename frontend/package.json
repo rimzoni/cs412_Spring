@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "cs412 spring frontend project in react",
+  "description": "cs412_project1",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/rimzoni/cs412_Spring.git"
   },
-  "author": "cs412 class",
+  "author": "MustafaZ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rimzoni/cs412_Spring/issues"

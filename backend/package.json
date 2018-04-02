@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "My first nodejs app",
+  "description": "cs412_project1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,7 @@
   "keywords": [
     "cs412"
   ],
-  "author": "ius",
+  "author": "MustafaZ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rimzoni/cs412_Spring/issues"

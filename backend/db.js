@@ -1,4 +1,8 @@
-let connectionString = 'postgres://iuslab:Ius2008@localhost:5432/cs416_db'
+let connectionString = {host: 'localhost',
+    port: 5432,
+    database: 'cs412',
+    user: 'postgres',
+    password: 'admin'}
 let knex = require('knex')({
   client: 'pg',
   connection: connectionString,

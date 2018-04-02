@@ -8,13 +8,7 @@ class Header extends Component {
       return (
         <div>
           <li>
-            <Link to="/">Dashboard</Link>
-          </li>
-          <li>
             <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/custom">Custom</Link>
           </li>
        </div>
      )

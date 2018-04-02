@@ -2,7 +2,6 @@ var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: path.resolve(__dirname, 'app'),
   output: {
     path: __dirname + '/dist',
@@ -10,8 +9,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    historyApiFallback: true
+    contentBase: path.resolve(__dirname, 'public')
   },
   module: {
     loaders: [
