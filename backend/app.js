@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 let bodyParser = require('body-parser')
 let cors = require('cors')
-
+var model = require('./model')
 var User = require('./user')
 
 app.use(bodyParser.json())
@@ -59,6 +59,46 @@ app.get('/userById', (req, res) => {
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
 })
+
+app.get('/all', (req, res) => {
+	model.all()
+		.then(function (models) {
+		  res.status(200)
+			.json(models)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/byDepartment', function(req, res){
+  model.byDepartment(req.query.department)
+  .then(function(models) {
+    res.status(200)
+    .json(models)
+  })
+  .catch(function (err) {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err,
+      message: err.message}});
+    })
+})
+
+app.get('/byID', function(req, res) {
+	model.byID(req.query.id)
+		.then(function (models) {
+		  res.status(200)
+			.json(models)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
 app.post('/user/create', (req, res) => {
 	console.log(req.body);
   let user = {
