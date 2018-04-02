@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var Project1 = require('./Project1')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -17,6 +18,47 @@ app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Access-Control-Allow-Headers')
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
   next()
+})
+
+app.get('/allRows', (req, res) => {
+	Project1.all()
+		.then(function (outcome) {
+		  res.status(200)
+			.json(outcome)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/byDepartment', (req, res) => {
+  //console.log(req.query.name)
+  Project1.byDepartment(req.query.department)
+		.then(function (outcome) {
+		  res.status(200)
+			.json(outcome)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/byId', (req, res) => {
+  let id1 = req.query.id
+  byId.forge({id: id1}).fetch().then(function (outcome) {
+    if (!outcome) {
+      return res.status(404).json({ error: true, message: 'Not found' })
+    } else {
+      res.status(200).json(outcome)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
 })
 
 app.get('/users', (req, res) => {
@@ -111,6 +153,6 @@ app.get('/user/delete', (req, res) => {
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
 })
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Project 1 :)'))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
