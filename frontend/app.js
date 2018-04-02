@@ -6,6 +6,8 @@ import UserDetail from './components/UserDetail'
 import Dashboard from './components/Dashboard'
 import Custom from './components/Custom'
 
+import Grid140302059 from './components/140302059Grid'
+
 import { BrowserRouter, Route } from 'react-router-dom'
 
 const router = (
@@ -18,6 +20,8 @@ const router = (
           <Route location={location} path='/user/:userId' exact component={UserDetail} />
 
           <Route location={location} path='/custom' exact component={Custom} />
+
+          <Route location={location} path='/140302059Grid' exact component={Grid140302059} />
           </div>
         )}
     />

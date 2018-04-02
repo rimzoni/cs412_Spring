@@ -4,6 +4,8 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+// Added by Selma
+var Department = require('./department')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -45,6 +47,7 @@ app.get('/userByName', (req, res) => {
         message: err.message}});
 		  })
 })
+
 app.get('/userById', (req, res) => {
 	console.log(req.query.id);
   let userId = req.query.id
@@ -112,5 +115,49 @@ app.get('/user/delete', (req, res) => {
   })
 })
 app.get('/', (req, res) => res.send('Hello World!'))
+
+
+// all rows
+app.get('/departments', (req, res) => {
+	Department.all()
+		.then(function (departments) {
+		  res.status(200)
+			.json(departments)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/searchByDepartment', (req, res) => {
+  Department.byDepartment(req.query.department)
+		.then(function (departments) {
+		  res.status(200)
+			.json(departments)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/searchById', (req, res) => {
+  let rowId = req.query.id
+  Department.forge({id: rowId}).fetch().then(function (departments) {
+    if (!departments) {
+      return res.status(404).json({ error: true, message: 'No such id assigned to the department' })
+    } else {
+      res.status(200).json(departments)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
+
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
