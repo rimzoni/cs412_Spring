@@ -31,6 +31,41 @@ app.get('/users', (req, res) => {
         message: err.message}});
 		  })
 })
+app.get("/all", function(req,res){
+   User.all().then(function (users) {
+      res.status(200)
+      .json(users)
+    })
+.catch(function (err) {
+  console.log(err)
+  res.status(500).json({error: true, data: {error: err,
+    message: err.message}});
+  })
+})
+
+app.get("/byDepartment" , function(req,res){
+  Task.byDepartment(req.query.department).then(function(tasks){
+    console.log("Department: " + req.query.department);
+    res.status(200).json(tasks)
+  })
+  .catch(function (err) {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err,
+      message: err.message}});
+    })
+
+})
+
+ app.get("/byId" , function(req,res){
+    Task.byID(req.query.id).then(function(tasks){
+       res.status(200).json(tasks)
+    })
+    .catch(function (err) {
+      console.log(err)
+      res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+      })
+})
 
 app.get('/userByName', (req, res) => {
   //console.log(req.query.name)
