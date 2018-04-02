@@ -1,14 +1,14 @@
-CREATE TABLE public."User"
+CREATE TABLE public."150302023"
 (
-    id serial,
-    name character varying,
-    email character varying,
-    PRIMARY KEY (id)
+    ID serial,
+    Department character varying,
+    Manager character varying,
+    PRIMARY KEY (ID)
 )
 WITH (
     OIDS = FALSE
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."User"
-    OWNER to iuslab;
+ALTER TABLE public."150302023"
+    OWNER to lejlahodzic;
