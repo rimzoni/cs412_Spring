@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var model = require('./model')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -17,6 +18,42 @@ app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Access-Control-Allow-Headers')
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
   next()
+})
+
+app.get('/all', (req, res) => {
+	model.all()
+		.then(function (models) {
+		  res.status(200)
+			.json(models)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get("/byDepartment",function(req,res){
+  model.byDepartment(req.query.department).then(function(models){
+    res.status(200)
+    .json(models)
+  })
+  .catch(function (err) {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err,
+      message: err.message}});
+    })
+})
+app.get("/byId",function(req,res){
+  model.byId(req.query.id).then(function(models){
+    res.status(200)
+    .json(models)
+  })
+  .catch(function (err) {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err,
+      message: err.message}});
+    })
 })
 
 app.get('/users', (req, res) => {

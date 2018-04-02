@@ -16,6 +16,9 @@ class Header extends Component {
           <li>
             <Link to="/custom">Custom</Link>
           </li>
+          <li>
+            <Link to="/O150302075Grid">O150302075Grid</Link>
+          </li>
        </div>
      )
    }
