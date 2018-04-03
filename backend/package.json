@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/rimzoni/cs412_Spring#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "bookshelf": "^0.12.1",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "knex": "^0.13.0",
     "pg": "^7.4.1"
