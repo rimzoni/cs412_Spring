@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var Task = require('./task')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -110,6 +111,86 @@ app.get('/user/delete', (req, res) => {
     console.log(err)
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
+})
+
+// tasks routes
+// http://localhost:3000/tasks
+app.get('/tasks', (req, res) => {
+	Task.all()
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+// http://localhost:3000/task/name
+app.get('/task/name', (req, res) => {
+  //console.log(req.query.name)
+  Task.byName(req.query.name)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+// http://localhost:3000/task/id
+app.get('/task/id', (req, res) => {
+	// console.log(req.query.id);
+  let taskId = req.query.id
+  Task.forge({id: taskId}).fetch().then(function (tasks) {
+    if (!tasks) {
+      return res.status(404).json({ error: true, message: 'task not found' })
+    } else {
+      res.status(200).json(tasks)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
+// http://localhost:3000/task/status
+app.get('/task/status', (req, res) => {
+	// console.log(req.query.id);
+  let taskStatus = req.query.status
+  Task.byStatus(taskStatus)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+app.post('/task/update', (req, res) => {
+	console.log(req.body);
+  let task = {
+  'id': req.body.task.id,
+  'name': req.body.task.name,
+  'description': req.body.task.description,
+  'status': req.body.task.status
+  }
+Task.forge(task)
+        .save()
+        .then((task) => {
+          console.log(task)
+          res.status(200)
+            .json(task)
+        })
+        .catch((err) => {
+          console.log(err)
+          res.status(500).json({error: true, data: {error: err, message: err.message}})
+        })
 })
 app.get('/', (req, res) => res.send('Hello World!'))
 
