@@ -15,6 +15,7 @@ class UserDetail extends Component {
     this.getUserById = this.getUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeUserById = this.removeUserById.bind(this)
   }
   componentWillMount () {
     this.getUserById(this.props.match.params.userId)
@@ -61,6 +62,15 @@ class UserDetail extends Component {
         break;
     }
   }
+
+  removeUserById(e, userId){
+    e.preventDefault()
+    e.stopPropagation()
+    let name = e.target.name.value
+    let id = e.target.id.value
+
+  }
+
   render () {
       return (
         <div>
@@ -80,6 +90,9 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+
+
+
         </div>
      )
    }
