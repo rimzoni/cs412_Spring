@@ -13,6 +13,7 @@ class UserGrid extends Component {
 
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit2 = this.handleSubmit2.bind(this);
     this.handleClear = this.handleClear.bind(this);
   }
 
@@ -33,6 +34,13 @@ class UserGrid extends Component {
   axios.get('http://localhost:3000/userByName?name='+ name, { "name" : name } )
      .then(response => this.setState({users: response.data}))
  }
+ handleSubmit2(event) {
+  event.preventDefault();
+  let name = event.target.name.value
+  console.log(name)
+ axios.get('http://localhost:3000/removeUserById?userId='+ userId, { "name" : userId } )
+    .then(response => this.setState({users: response.data}))
+}
 
   render () {
     return (
@@ -40,10 +48,11 @@ class UserGrid extends Component {
       <Header />
        <button className='button' onClick={this.handleClick}>Show all users</button>
        <br/>
-       <form onSubmit={this.handleSubmit}>
+       <form onSubmit>
          <label htmlFor="name">Enter the name to search</label>
          <input id="name" type="text" name="name" />
-         <input type="submit" name="Filter by name" />
+         <input this.handleSubmit type="submit" name="Filter by name" value="By Name" />
+         <input this.handleSubmit2 type="submit" name="removeUserById" value="Remove User" />
        </form>
        <table>
         <thead>

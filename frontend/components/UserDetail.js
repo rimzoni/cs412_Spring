@@ -13,6 +13,7 @@ class UserDetail extends Component {
       }
     }
     this.getUserById = this.getUserById.bind(this)
+    this.removeUserById = this.removeUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -23,6 +24,16 @@ class UserDetail extends Component {
     axios.get('http://localhost:3000/userById?id='+userId)
         .then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
+  }
+  removeUserById (e, userId) {
+    e.preventDefault()
+    e.stopPropagation()
+
+    axios.post('http://localhost:3000/user/delete', {user: {
+      'id': this.props.match.params.userId,
+      'name': name,
+      'email': email
+    }}).then(this.props.history.push('/users'))
   }
   handleSubmit(e) {
     e.preventDefault()
