@@ -30,7 +30,6 @@ class UserDetail extends Component {
     e.stopPropagation()
     axios.get('http://localhost:3000/user/delete?id='+userId)
         .then(this.props.history.push('/users'))
-        //.then(response => console.log(response))
   }
 
   handleSubmit(e) {
