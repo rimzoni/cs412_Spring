@@ -90,7 +90,7 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
-         <button className='button' onClick={(e,this.state.user.id ) => this.handleChange(e, this.state.user.id)}>Remove user</button>
+         <button className='button' onClick={(e) => this.removeUserById(e, this.state.user.id)}>Remove user</button>
         </div>
      )
    }
