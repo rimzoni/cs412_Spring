@@ -13,6 +13,7 @@ class UserDetail extends Component {
       }
     }
     this.getUserById = this.getUserById.bind(this)
+    this.removeUserById = this.removeUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -24,6 +25,14 @@ class UserDetail extends Component {
         .then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
   }
+  removeUserById(e, userId) {
+      e.preventDefault();
+      e.stopPropagation();
+      let id = this.props.match.params.userId
+      axios.get('http://localhost:3000/user/delete?id='+ id, { "id" : id } )
+       .then(this.props.history.push('/users'))
+    }
+  //.then(response => console.log(response))
   handleSubmit(e) {
     e.preventDefault()
   	e.stopPropagation()
@@ -80,6 +89,7 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+         <button type="button" onClick={(e) => this.removeUserById(e, 'userId')}>Remove User</button>
         </div>
      )
    }
