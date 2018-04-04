@@ -73,9 +73,8 @@ class UserDetail extends Component {
 
     axios.get('http://localhost:3000/user/delete?id='+userId)
       .then(response => this.setState({user: response.data}))
-      // .then(this.props.history.push('/users'))
+      // .then(this.props.history.push('/users')
   }
-
 
 
 
