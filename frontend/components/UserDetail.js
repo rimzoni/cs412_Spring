@@ -15,6 +15,8 @@ class UserDetail extends Component {
     this.getUserById = this.getUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+
+    this.removeUserById = this.removeUserById.bind(this)
   }
   componentWillMount () {
     this.getUserById(this.props.match.params.userId)
@@ -25,7 +27,12 @@ class UserDetail extends Component {
         //.then(response => console.log(response))
   }
 
-
+  removeUserById(e, userId) {
+    e.preventDefault()
+    e.stopPropagation()
+    axis.get('http://localhost:3000/user/delete?id='+userId)
+      .then(this.props.history.push('/users'))
+  }
 
   handleSubmit(e) {
     e.preventDefault()
@@ -83,6 +90,10 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+
+
+          <button className='button' value={this.state.user.id} onClick={(e) => this.removeUserById(e, 'id')}>Remove User</button>
+
         </div>
      )
    }
