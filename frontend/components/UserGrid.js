@@ -26,6 +26,8 @@ class UserGrid extends Component {
     this.setState({users: []  })
   }
 
+  
+
   handleSubmit(event) {
    event.preventDefault();
    let name = event.target.name.value
@@ -52,6 +54,7 @@ class UserGrid extends Component {
           <th>Name</th>
           <th>Email</th>
           <th>Action</th>
+          <th>deletness</th>
          </tr>
         </thead>
         <tbody>
