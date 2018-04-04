@@ -24,6 +24,12 @@ class UserDetail extends Component {
         .then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
   }
+  removeUserById (e, userId) {
+    e.preventDefault()
+  	e.stopPropagation()
+    axios.get('http://localhost:3000//user/delete?id='+userId)
+        .then(this.props.history.push('/users'))
+  }
   handleSubmit(e) {
     e.preventDefault()
   	e.stopPropagation()
