@@ -36,6 +36,13 @@ class UserDetail extends Component {
       'email': email
     }}).then(response => this.setState({user: response.data}))
   }
+  removeUserById(e, userId) {
+    event.preventDefault();
+    event.stopPropagation();
+    let id = this.props.match.params.userId
+    axios.get('http://localhost:3000/user/delete?id='+ id, { "id" : id } )
+     .then(this.props.history.push('/users'))
+  }
   handleChange(event,field) {
     switch (field) {
       case 'name':
@@ -80,6 +87,7 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+         <button type="button" onClick={(e) => this.removeUserById(e, 'userId')}>Remove</button>
         </div>
      )
    }

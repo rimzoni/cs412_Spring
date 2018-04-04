@@ -99,7 +99,7 @@ User.forge(user)
 })
 app.get('/user/delete', (req, res) => {
 	console.log(req.query.id);
-  let userId = req.query.id
+
   User.forge({id: userId}).fetch().then(function (users) {
     if (!users) {
       return res.status(404).json({ error: true, message: 'user not found' })
