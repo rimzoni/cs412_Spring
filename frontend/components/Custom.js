@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Header from './Header'
 
-
-class Header extends Component {
+class Custom extends Component {
 
     render () {
       return (
         <div>
-          <li>
-            <Link to="/">Dashboard</Link>
-          </li>
+        <Header />
+          <h3>
+            Hi! Nice to see you in custom.
+          </h3>
+          <p> If you want to go back use links bellow</p>
           <li>
             <Link to="/users">Users</Link>
           </li>
           <li>
             <Link to="/custom">Custom</Link>
           </li>
-          <li>
-            <Link to="/tasks">Tasks</Link>
-          </li>
        </div>
      )
    }
  }
- export default Header
+ export default Custom
