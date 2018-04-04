@@ -16,6 +16,7 @@ const router = (
           <Route location={location} path='/' exact component={Dashboard} />
           <Route location={location} path='/users' exact component={UserGrid} />
           <Route location={location} path='/user/:userId' exact component={UserDetail} />
+          
           <Route location = {location} path = '/myGrid' exact component = {MyGrid}/>
           <Route location={location} path='/custom' exact component={Custom} />
           </div>

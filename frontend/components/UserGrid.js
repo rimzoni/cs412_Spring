@@ -14,6 +14,7 @@ class UserGrid extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    
   }
 
   handleClick () {
@@ -25,6 +26,8 @@ class UserGrid extends Component {
   handleClear () {
     this.setState({users: []  })
   }
+
+
 
   handleSubmit(event) {
    event.preventDefault();
@@ -62,6 +65,7 @@ class UserGrid extends Component {
                         <td>{user.name}</td>
                         <td>{user.email}</td>
                         <td><Link to={'/user/'+user.id}>edit</Link></td>
+                    
                       </tr>
                     )
                    })
