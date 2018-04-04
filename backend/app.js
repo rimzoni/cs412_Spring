@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cors = require('cors')
 
 var User = require('./user')
+var Table1234 = require('./Table1234')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -32,12 +33,39 @@ app.get('/users', (req, res) => {
 		  })
 })
 
+app.get('/all1234', (req, res) => {
+	Table1234.all()
+		.then(function (all1234) {
+		  res.status(200)
+			.json(all1234)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
 app.get('/userByName', (req, res) => {
   //console.log(req.query.name)
   User.byName(req.query.name)
 		.then(function (users) {
 		  res.status(200)
 			.json(users)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+app.get('/1234ByDepartment', (req, res) => {
+  //console.log(req.query.name)
+  Table1234.byDepartment(req.query.department)
+		.then(function (all1234) {
+		  res.status(200)
+			.json(all1234)
 		})
 		.catch(function (err) {
 			console.log(err)
@@ -53,6 +81,20 @@ app.get('/userById', (req, res) => {
       return res.status(404).json({ error: true, message: 'user not found' })
     } else {
       res.status(200).json(users)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+app.get('/1234ById', (req, res) => {
+	console.log(req.query.id);
+  let theId = req.query.id
+  Table1234.forge({id: theId}).fetch().then(function (all1234) {
+    if (!all1234) {
+      return res.status(404).json({ error: true, message: '1234 not found' })
+    } else {
+      res.status(200).json(all1234)
     }
   }).catch((err) => {
     console.log(err)
