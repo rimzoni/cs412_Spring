@@ -89,6 +89,8 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+          <br/>
+         <button className='button' onClick={(e) => this.removeUserById(e,this.state.user.id)}>Remove User</button>
         </div>
      )
    }
