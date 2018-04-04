@@ -30,9 +30,9 @@ class UserDetail extends Component {
   removeUserById (e, userId) {
     e.preventDefault();
     e.stopPropagation();
-    let id = event.target.id.value
+    let id = this.state.user.id
     console.log(id)
-   axios.get('http://localhost:3000/user/delete?id='+ userId, { "id" : id } )
+   axios.get('http://localhost:3000/user/delete?id='+ id, { "id" : id } )
       .then(this.props.history.push('/users'))
   }
   handleSubmit(e) {
@@ -40,7 +40,7 @@ class UserDetail extends Component {
   	e.stopPropagation()
     let name = e.target.name.value
     let email = e.target.email.value
-    
+
     axios.post('http://localhost:3000/user/update', {user: {
       'id': this.props.match.params.userId,
       'name': name,
@@ -79,8 +79,8 @@ class UserDetail extends Component {
         <Header />
          <h3>User detail page for user: {this.state.user.name}</h3>
          <form onSubmit={this.removeUserById}>
-           <label htmlFor="id">Remove user</label>
-           <input id="id" type="text" name="id" />
+           <label htmlFor="userId">Remove user</label>
+           <input id="userId" type="text" name="userId" />
            <input type="submit" name="Delete by ID" />
          </form>
          <form onSubmit={this.handleSubmit}>
