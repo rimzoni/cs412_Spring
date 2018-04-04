@@ -44,6 +44,14 @@ class UserDetail extends Component {
   }
   handleChange(event,field) {
     switch (field) {
+      case 'id':
+      this.setState(
+        {user: {
+          id: event.target.value,
+          name: this.state.user.name,
+          email: this.state.user.email
+        }});
+        break;
       case 'name':
       this.setState(
         {user: {
@@ -85,6 +93,14 @@ class UserDetail extends Component {
           </label>
           <br/>
           <input type="submit" value="Submit" />
+         </form>
+         <form onSubmit={this.handleSubmit}>
+           <label>
+             Id:
+             <input type="text" name="id" value={this.state.user.id} onChange={(e) => this.removeUserById(e, this.state.user.id)} />
+           </label>
+           <br/>
+           <input type="submit" value="Delete" />
          </form>
         </div>
      )
