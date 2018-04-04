@@ -14,6 +14,17 @@ class UserGrid extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+
+    this.removeUserById = this.removeUserById.bind(this)
+  }
+
+
+  removeUserById(e, userId) {
+    e.preventDefault()
+    e.stopPropagation()
+    // let userID = event.target.id.value
+    axis.get('http://localhost:3000/user/delete?id=' + userId, {"id" : userId})
+      .then(this.props.history.push('/users'))
   }
 
   handleClick () {

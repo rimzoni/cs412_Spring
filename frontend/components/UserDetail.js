@@ -24,6 +24,9 @@ class UserDetail extends Component {
         .then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
   }
+
+
+
   handleSubmit(e) {
     e.preventDefault()
   	e.stopPropagation()
