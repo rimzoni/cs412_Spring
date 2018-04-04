@@ -1,9 +1,10 @@
-/*import React, { Component } from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 //import './App.css'
-
+import Header from './Header'
 import axios from 'axios'
 
-class RESTApp extends Component {
+class UserGrid extends Component {
   constructor () {
     super()
     this.state = {
@@ -13,7 +14,6 @@ class RESTApp extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
-    this.handleSubmit2 = this.handleSubmit2.bind(this);
   }
 
   handleClick () {
@@ -34,32 +34,16 @@ class RESTApp extends Component {
      .then(response => this.setState({users: response.data}))
  }
 
- handleSubmit2(event) {
-  event.preventDefault();
-  let email = event.target.email.value
-  console.log(email)
- axios.get('http://localhost:3000/userByEmail?email='+ email, { "email" : email } )
-    .then(response => {
-      this.setState({users: response.data});
-    });
-}
-
-
   render () {
     return (
       <div>
-       <button className='button' onClick={this.handleClick}>Show all Users</button>
+      <Header />
+       <button className='button' onClick={this.handleClick}>Show all users</button>
        <br/>
        <form onSubmit={this.handleSubmit}>
-         <label htmlFor="name">Enter name to search</label>
+         <label htmlFor="name">Enter the name to search</label>
          <input id="name" type="text" name="name" />
          <input type="submit" name="Filter by name" />
-       </form>
-       <br/>
-       <form onSubmit={this.handleSubmit2}>
-         <label htmlFor="email">Enter email to search</label>
-         <input id="email" type="text" name="email" />
-         <input type="submit" name="Filter by email" />
        </form>
        <table>
         <thead>
@@ -67,6 +51,7 @@ class RESTApp extends Component {
           <th>Id</th>
           <th>Name</th>
           <th>Email</th>
+          <th>Action</th>
          </tr>
         </thead>
         <tbody>
@@ -76,6 +61,8 @@ class RESTApp extends Component {
                         <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
+                        <td><Link to={'/user/'+user.id}>edit</Link></td>
+                        <td><Link to={'/user/delete/'+user.id}>Delete</Link></td>
                       </tr>
                     )
                    })
@@ -86,4 +73,4 @@ class RESTApp extends Component {
     )
   }
 }
-export default RESTApp*/
+export default UserGrid

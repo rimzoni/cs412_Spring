@@ -1,4 +1,4 @@
-let connectionString = 'postgres://postgres:123456789@localhost:5432/CS416_DB'
+let connectionString = 'postgres://postgres:postgres@localhost:5432/CS416_DB'
 let knex = require('knex')({
   client: 'pg',
   connection: connectionString,

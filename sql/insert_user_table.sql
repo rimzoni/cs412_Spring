@@ -1,0 +1,10 @@
+INSERT INTO "130303008" (department,manager) VALUES ('IT','Ahmed');
+INSERT INTO "130303008" (department,manager) VALUES ('CS','Youssef');
+INSERT INTO "130303008" (department,manager) VALUES ('SE','Sadi');
+INSERT INTO "130303008" (department,manager) VALUES ('EE','Salah');
+INSERT INTO "130303008" (department,manager) VALUES ('Arch','Yahya');
+INSERT INTO "130303008" (department,manager) VALUES ('Law','Vezir');
+INSERT INTO "130303008" (department,manager) VALUES ('IE','Muharem');
+INSERT INTO "130303008" (department,manager) VALUES ('MAN','Musab');
+INSERT INTO "130303008" (department,manager) VALUES ('PR','Indira');
+INSERT INTO "130303008" (department,manager) VALUES ('SAO','Meliha');
