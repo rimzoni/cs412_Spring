@@ -15,6 +15,7 @@ class UserDetail extends Component {
     this.getUserById = this.getUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeUserById = this.removeUserById.bind(this)
   }
   componentWillMount () {
     this.getUserById(this.props.match.params.userId)
@@ -24,6 +25,15 @@ class UserDetail extends Component {
         .then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
   }
+
+ removeUserById(e, userId){
+   e.preventDefault()
+   e.stopPropagation()
+
+   axios.get('http://localhost:3000/user/delete?id='+userId)
+   .then(this.props.history.push('/users'))
+ }
+
   handleSubmit(e) {
     e.preventDefault()
   	e.stopPropagation()
