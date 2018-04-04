@@ -15,6 +15,7 @@ class UserDetail extends Component {
     this.getUserById = this.getUserById.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeUserById = this.removeUserById.bind(this)
   }
   componentWillMount () {
     this.getUserById(this.props.match.params.userId)
@@ -61,11 +62,20 @@ class UserDetail extends Component {
         break;
     }
   }
+
+  removeUserById(e, userId) {
+    event.preventDefault();
+    event.stopPropagation();
+    let id = this.props.match.params.userId
+    axios.get('http://localhost:3000/user/delete?id='+ id, { "id" : id } )
+     .then(this.props.history.push('/users'))
+  }
+
   render () {
       return (
         <div>
         <Header />
-         <h3>User detail page for user: {this.state.user.name}</h3>
+         <h3>User detail page: {this.state.user.name}</h3>
 
          <form onSubmit={this.handleSubmit}>
           <label>
@@ -80,6 +90,8 @@ class UserDetail extends Component {
           <br/>
           <input type="submit" value="Submit" />
          </form>
+
+          <button type="button" onClick={(e) => this.removeUserById(e, 'userId')}>Remove the user</button>
         </div>
      )
    }
