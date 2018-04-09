@@ -18,7 +18,9 @@ class UserDetail extends Component {
     this.removeUserById = this.removeUserById.bind(this)
   }
   componentWillMount () {
-    this.getUserById(this.props.match.params.userId)
+    if(this.props.match.params.type == 'edit') {
+      this.getUserById(this.props.match.params.userId)
+    }
   }
   getUserById (userId) {
     axios.get('http://localhost:3000/userById?id='+userId)
@@ -37,11 +39,18 @@ class UserDetail extends Component {
     let name = e.target.name.value
     let email = e.target.email.value
 
-    axios.post('http://localhost:3000/user/update', {user: {
-      'id': this.props.match.params.userId,
-      'name': name,
-      'email': email
-    }}).then(response => this.setState({user: response.data}))
+    if(this.props.match.params.type == 'edit') {
+      axios.post('http://localhost:3000/user/update', {user: {
+        'id': this.props.match.params.userId,
+        'name': name,
+        'email': email
+      }}).then(response => this.setState({user: response.data}))
+    } else {
+      axios.post('http://localhost:3000/user/create', {user: {
+        'name': name,
+        'email': email
+      }}).then(response => this.setState({user: response.data}))
+    }
   }
   handleChange(event,field) {
     switch (field) {

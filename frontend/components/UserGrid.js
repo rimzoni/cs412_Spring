@@ -40,6 +40,7 @@ class UserGrid extends Component {
       <Header />
        <button className='button' onClick={this.handleClick}>Show all users</button>
        <br/>
+       <button><Link to={'/user/create'}>Create New User</Link></button>
        <form onSubmit={this.handleSubmit}>
          <label htmlFor="name">Enter the name to search</label>
          <input id="name" type="text" name="name" />
@@ -61,7 +62,7 @@ class UserGrid extends Component {
                         <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
-                        <td><Link to={'/user/'+user.id}>edit</Link></td>
+                        <td><Link to={'/user/edit/'+user.id}>edit</Link></td>
                       </tr>
                     )
                    })
