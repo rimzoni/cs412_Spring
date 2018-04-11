@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import { Menu } from 'semantic-ui-react'
 
 class Header extends Component {
 
     render () {
       return (
-        <div>
-          <li>
+        <Menu inverted>
+          <Menu.Item>
             <Link to="/">Dashboard</Link>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/users">Users</Link>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/custom">Custom</Link>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/tasks">Tasks</Link>
-          </li>
-       </div>
+          </Menu.Item>
+       </Menu>
      )
    }
  }

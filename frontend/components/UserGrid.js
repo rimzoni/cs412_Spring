@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
 import axios from 'axios'
+import { Button, Form, Table, Container } from 'semantic-ui-react'
+
 
 class UserGrid extends Component {
   constructor () {
@@ -36,40 +38,43 @@ class UserGrid extends Component {
 
   render () {
     return (
-      <div>
+      <Container>
       <Header />
-       <button className='button' onClick={this.handleClick}>Show all users</button>
+       <Button primary className='button' onClick={this.handleClick}>Show all users</Button>
+       <Button secondary><Link to={'/user/create'}>Create New User</Link></Button>
+       <br/><br/>
+       <Form onSubmit={this.handleSubmit}>
+        <Form.Field>
+          <label htmlFor="name">Enter the name to search</label>
+          <input id="name" type="text" name="name" />
+        </Form.Field>
+        <Button type='submit'>Filter by name</Button>
+       </Form>
        <br/>
-       <button><Link to={'/user/create'}>Create New User</Link></button>
-       <form onSubmit={this.handleSubmit}>
-         <label htmlFor="name">Enter the name to search</label>
-         <input id="name" type="text" name="name" />
-         <input type="submit" name="Filter by name" />
-       </form>
-       <table>
-        <thead>
-         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-         </tr>
-        </thead>
-        <tbody>
+       <Table celled padded>
+        <Table.Header>
+         <Table.Row>
+          <Table.HeaderCell>Id</Table.HeaderCell>
+          <Table.HeaderCell>Name</Table.HeaderCell>
+          <Table.HeaderCell>Email</Table.HeaderCell>
+          <Table.HeaderCell>Action</Table.HeaderCell>
+         </Table.Row>
+        </Table.Header>
+        <Table.Body>
          { this.state.users.map((user, key) => {
                    return (
-                      <tr key={key}>
-                        <td>{user.id}</td>
-                        <td>{user.name}</td>
-                        <td>{user.email}</td>
-                        <td><Link to={'/user/edit/'+user.id}>edit</Link></td>
-                      </tr>
+                      <Table.Row key={key}>
+                        <Table.Cell>{user.id}</Table.Cell>
+                        <Table.Cell>{user.name}</Table.Cell>
+                        <Table.Cell>{user.email}</Table.Cell>
+                        <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
+                      </Table.Row>
                     )
                    })
          }
-         </tbody>
-        </table>
-       </div>
+         </Table.Body>
+        </Table>
+       </Container>
     )
   }
 }

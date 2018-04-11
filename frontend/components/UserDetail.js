@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 import axios from 'axios'
-import Header from './Header'
+import AppHeader from './Header'
+import { Button, Form, Container, Header } from 'semantic-ui-react'
+
 
 class UserDetail extends Component {
   constructor () {
@@ -79,25 +81,27 @@ class UserDetail extends Component {
   }
   render () {
       return (
-        <div>
-        <Header />
-         <h3>User detail page for user: {this.state.user.name}</h3>
+        <Container>
+        <AppHeader />
+         <Header as='h3'>User detail page for user: {this.state.user.name}</Header>
 
-         <form onSubmit={this.handleSubmit}>
-          <label>
+         <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+           <label>
             Name:
             <input type="text" name="name" value={this.state.user.name} onChange={(e) => this.handleChange(e, 'name')} />
-          </label>
-          <br/>
-          <label>
+            </label>
+          </Form.Field>
+          <Form.Field>
+           <label>
             Email:
             <input type="text" name="email" value={this.state.user.email} onChange={(e) => this.handleChange(e, 'email')} />
-          </label>
-          <br/>
-          <input type="submit" value="Submit" />
-         </form>
-         <button className='button' onClick={(e) => this.removeUserById(e, this.state.user.id)}>Remove user</button>
-        </div>
+           </label>
+          </Form.Field>
+          <Button primary type='submit'>Submit</Button>
+          <Button secondary className='button' onClick={(e) => this.removeUserById(e, this.state.user.id)}>Remove user</Button>
+         </Form>
+         </Container>
      )
    }
  }
