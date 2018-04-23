@@ -7,6 +7,8 @@ import Dashboard from './components/Dashboard'
 import Custom from './components/Custom'
 import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
+import LoginPage from './components/LoginPage'
+import SignupPage from './components/SignupPage'
 
 
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -23,6 +25,9 @@ const router = (
           <Route location={location} path='/custom' exact component={Custom} />
           <Route location={location} path='/tasks' exact component={TasksComponent} />
           <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
+
+          <Route location={location} path='/login' exact component={LoginPage} />
+          <Route location={location} path='/signup' exact component={SignupPage} />
 
           </div>
         )}

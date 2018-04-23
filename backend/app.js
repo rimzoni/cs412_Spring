@@ -5,6 +5,9 @@ let cors = require('cors')
 
 var User = require('./user')
 var Task = require('./task')
+// add
+let uuid = require('node-uuid')
+const bcrypt = require('bcrypt')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -61,40 +64,73 @@ app.get('/userById', (req, res) => {
   })
 })
 app.post('/user/create', (req, res) => {
-	console.log(req.body);
-  let user = {
-  'name': req.body.user.name,
-  'email': req.body.user.email
-  }
-User.forge(user)
-        .save()
-        .then((user) => {
-          console.log(user)
-          res.status(200)
-            .json(user)
-        })
-        .catch((err) => {
-          console.log(err)
-          res.status(500).json({error: true, data: {error: err, message: err.message}})
-        })
+  console.log(req.body);
+  bcrypt.hash(req.body.user.password, 10, function(err, hash) {
+    let user = {
+      'name': req.body.user.name,
+      'email': req.body.user.email,
+      'password': hash,
+      'token': uuid.v1()
+      }
+    User.forge(user)
+            .save()
+            .then((user) => {
+              console.log(user)
+              res.status(200)
+                .json(user)
+            })
+            .catch((err) => {
+              console.log(err)
+              res.status(500).json({error: true, data: {error: err, message: err.message}})
+            })
+  })
+})
+app.get('/user/login', (req, res) => {
+  let username = req.query.email
+  let password = req.query.password
+
+  User.forge({email: username}).fetch().then(function (users) {
+    if (!users) {
+      return res.status(200).json({ logged: false, error: 'Wrong email entered.' })
+    } else {
+      bcrypt.compare(password, users.attributes.password, function(err, match) {
+      let response = { logged: false, email: users.attributes.email, name: users.attributes.name, id: users.attributes.id, token: users.attributes.token, error: ''}
+      if(match) {
+        response.logged = true
+        return res.status(200).json(response)
+      } else {
+        response.logged = false
+        response.error = 'Wrong password entered'
+        return res.status(200).json(response)
+      }
+    })
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
 })
 app.post('/user/update', (req, res) => {
-	console.log(req.body);
-  let user = {
-  'id': req.body.user.id,
-  'name': req.body.user.name,
-  'email': req.body.user.email
-  }
-User.forge(user)
-        .save()
-        .then((user) => {
-          console.log(user)
-          res.status(200)
-            .json(user)
-        })
-        .catch((err) => {
-          console.log(err)
-          res.status(500).json({error: true, data: {error: err, message: err.message}})
+  console.log(req.body);
+  bcrypt.hash(req.body.user.password, 10, function(err, hash) {
+    let user = {
+    'id': req.body.user.id,
+    'name': req.body.user.name,
+    'email': req.body.user.email,
+    'password': hash,
+    'token': uuid.v1()
+    }
+    User.forge(user)
+          .save()
+          .then((user) => {
+            console.log(user)
+            res.status(200)
+              .json(user)
+          })
+          .catch((err) => {
+            console.log(err)
+            res.status(500).json({error: true, data: {error: err, message: err.message}})
+          })
         })
 })
 app.get('/user/delete', (req, res) => {

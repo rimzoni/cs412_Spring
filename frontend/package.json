@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rimzoni/cs412_Spring#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "query-string": "^6.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",

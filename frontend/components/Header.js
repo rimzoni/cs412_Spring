@@ -19,6 +19,12 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
+          <Menu.Item position='right'>
+            <Link to="/login">Login</Link>
+          </Menu.Item>
+		      <Menu.Item position='right'>
+            <Link to="/signup">Signup</Link>
+          </Menu.Item>
        </Menu>
      )
    }
