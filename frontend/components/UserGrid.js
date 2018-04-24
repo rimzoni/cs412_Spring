@@ -57,6 +57,7 @@ class UserGrid extends Component {
           <Table.HeaderCell>Id</Table.HeaderCell>
           <Table.HeaderCell>Name</Table.HeaderCell>
           <Table.HeaderCell>Email</Table.HeaderCell>
+          <Table.HeaderCell>Token</Table.HeaderCell>
           <Table.HeaderCell>Action</Table.HeaderCell>
          </Table.Row>
         </Table.Header>
@@ -67,6 +68,7 @@ class UserGrid extends Component {
                         <Table.Cell>{user.id}</Table.Cell>
                         <Table.Cell>{user.name}</Table.Cell>
                         <Table.Cell>{user.email}</Table.Cell>
+                        <Table.Cell>{user.token}</Table.Cell>
                         <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
                       </Table.Row>
                     )

@@ -83,7 +83,7 @@ class LoginPage extends Component {
   render () {
       return (
         <Container>
-        <AppHeader />
+        <AppHeader user={this.state.user} />
         {(this.state.user.logged && this.state.user.error === '')&&
          <Header as='h3'>Successfully logged in user with details : {`Name: ${this.state.user.name}, Email:${this.state.user.email} and user has token ${this.state.user.token}`}</Header>
         }

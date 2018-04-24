@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
+import { Button, Form, Table, Container } from 'semantic-ui-react'
 import axios from 'axios'
 
 class TasksComponent extends Component {
@@ -43,41 +44,48 @@ class TasksComponent extends Component {
 
   render () {
     return (
-      <div>
+      <Container>
       <Header />
-       <button className='button' onClick={this.handleClick}>Show all tasks</button>
-       <br/>
-       <form onSubmit={this.handleSubmit}>
+      <Button primary className='button' onClick={this.handleClick}>Show all tasks</Button>
+      <br/><br/>
+      <Form onSubmit={this.handleSubmit}>
+       <Form.Field>
          <label htmlFor="name">Enter the name to search</label>
          <input id="name" type="text" name="name" />
+       </Form.Field>
+       <Form.Field>
          <label htmlFor="status">Enter the status to search</label>
          <input id="status" type="text" name="status" />
-         <input type="submit" name="Filter by name and status" />
-       </form>
-       <table>
-        <thead>
-         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-         </tr>
-        </thead>
-        <tbody>
+       </Form.Field>
+       <Button type='submit'>Filter by name and status</Button>
+      </Form>
+      <br/>
+      <Table celled padded>
+        <Table.Header>
+         <Table.Row>
+          <Table.HeaderCell>Id</Table.HeaderCell>
+          <Table.HeaderCell>Name</Table.HeaderCell>
+          <Table.HeaderCell>Description</Table.HeaderCell>
+          <Table.HeaderCell>Status</Table.HeaderCell>
+          <Table.HeaderCell>Action</Table.HeaderCell>
+         </Table.Row>
+        </Table.Header>
+        <Table.Body>
          { this.state.tasks.map((task, key) => {
                    return (
-                      <tr key={key}>
-                        <td>{task.id}</td>
-                        <td>{task.name}</td>
-                        <td>{task.email}</td>
-                        <td><Link to={'/task/'+task.id}>edit</Link></td>
-                      </tr>
+                      <Table.Row key={key}>
+                        <Table.Cell>{task.id}</Table.Cell>
+                        <Table.Cell>{task.name}</Table.Cell>
+                        <Table.Cell>{task.description}</Table.Cell>
+                        <Table.Cell>{task.status}</Table.Cell>
+                        <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
+                      </Table.Row>
                     )
                    })
          }
-         </tbody>
-        </table>
-       </div>
+         </Table.Body>
+        </Table>
+       </Container>
     )
   }
 }
