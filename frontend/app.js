@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { connect } from 'react-redux'
+import { resetErrorMessage } from './actions'
+
 import UserGrid from './components/UserGrid'
 import UserDetail from './components/UserDetail'
 import Dashboard from './components/Dashboard'
@@ -13,26 +16,40 @@ import SignupPage from './components/SignupPage'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
-const router = (
-  <BrowserRouter>
-    <Route
-      render={props => (
-          <div>
-          <Route location={location} path='/' exact component={Dashboard} />
-          <Route location={location} path='/users' exact component={UserGrid} />
-          <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
+class App extends React.Component {
+  componentWillMount () {
+    //call load session
+  }
 
-          <Route location={location} path='/custom' exact component={Custom} />
-          <Route location={location} path='/tasks' exact component={TasksComponent} />
-          <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
+  render () {
+    return (
+      <BrowserRouter>
+        <Route
+          render={props => (
+            <div>
+            <Route location={location} path='/' exact component={Dashboard} />
+            <Route location={location} path='/users' exact component={UserGrid} />
+            <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
+  
+            <Route location={location} path='/custom' exact component={Custom} />
+            <Route location={location} path='/tasks' exact component={TasksComponent} />
+            <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
+  
+            <Route location={location} path='/login' exact component={LoginPage} />
+            <Route location={location} path='/signup' exact component={SignupPage} />
+  
+            </div>
+          )}
+        />
+      </BrowserRouter>
+    )
+  }
+}
 
-          <Route location={location} path='/login' exact component={LoginPage} />
-          <Route location={location} path='/signup' exact component={SignupPage} />
-
-          </div>
-        )}
-    />
-  </BrowserRouter>
-)
-
-ReactDOM.render(router, document.getElementById('app'))
+export default 
+connect(
+  state => ({
+    errorMessage: state.errorMessage,
+    user: state.user}),
+  { resetErrorMessage: resetErrorMessage}
+)(App)	
