@@ -9,8 +9,12 @@ const initialAppState = {
   user: {
     logged: false,
     isFetching: false,
+<<<<<<< HEAD
     users:[],
     usersById:[]
+=======
+    users:[]
+>>>>>>> 4edd1bc38ab425d7a36af0ea36e88e53bdd7d095
   },
   errorMessage: null
 }
@@ -22,4 +26,8 @@ render(
     <App />
   </Provider>,
   document.getElementById('app')
+<<<<<<< HEAD
 )
+=======
+)
+>>>>>>> 4edd1bc38ab425d7a36af0ea36e88e53bdd7d095

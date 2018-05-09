@@ -24,7 +24,7 @@ class UserGrid extends Component {
   }
 
   handleClick () {
-    this.props.actions.fetchUsers()
+    this.props.actions.fetchUsers().then(response => this.setState({users: response.data}))
     // axios.get('http://localhost:3000/users')
     //     .then(response => this.setState({users: response.data}))
     //     //.then(response => console.log(response))
@@ -45,7 +45,7 @@ class UserGrid extends Component {
   render () {
     return (
       <Container>
-      <Header/>
+      <Header />
        <Button primary className='button' onClick={this.handleClick}>Show all users</Button>
        <Button secondary><Link to={'/user/create'}>Create New User</Link></Button>
        <br/><br/>

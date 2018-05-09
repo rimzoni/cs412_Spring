@@ -19,4 +19,8 @@ const rootReducer = combineReducers({
   errorMessage
 })
 
+<<<<<<< HEAD
 export default rootReducer
+=======
+export default rootReducer
+>>>>>>> 4edd1bc38ab425d7a36af0ea36e88e53bdd7d095
