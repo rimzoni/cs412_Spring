@@ -1,4 +1,4 @@
-// import userActions from './userActions'
+import userActions from './userActions'
 
 function resetErrorMessage () {
   return { type: 'RESET_ERROR_MESSAGE' }
@@ -6,5 +6,5 @@ function resetErrorMessage () {
 
 export {
   resetErrorMessage,
-  // userActions
+  userActions
 }
