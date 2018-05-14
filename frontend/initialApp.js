@@ -11,6 +11,12 @@ const initialAppState = {
     isFetching: false,
     users:[]
   },
+  loginProps: {
+    logged: false,
+    error: '',
+    isFetching: false,
+    user: {}
+  },
   errorMessage: null
 }
 
