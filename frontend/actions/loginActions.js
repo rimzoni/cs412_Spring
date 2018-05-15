@@ -1,18 +1,18 @@
 // import { fetchDispatch } from './fetchUtils'
 import axios from 'axios'
-const route = 'users'
+const loginRoute = 'user/login'
 const url = 'http://localhost:3000/'
 const apiProps = {
   url: '',
   params: {},
   types: {
-    request: 'REQUEST_ALL_USERS',
-    receive: 'RECEIVE_ALL_USERS'
+    request: 'REQUEST_LOGIN_DETAILS',
+    receive: 'RECEIVE_LOGIN_DETAILS'
   }
 }
 
-function shouldFetchData ({ user }) {
-  return !user.users || !user.isFetching
+function shouldFetchData ({ loginProps }) {
+  return !loginProps.logged || !loginProps.isFetching
 }
 
 function fetchDispatch (opts) {
@@ -39,13 +39,22 @@ function fetchDispatch (opts) {
   }
 }
 
-function fetchUsers () {
+function checkLoginDetails (email, password) {
   return (dispatch, getState) => {
     if (shouldFetchData(getState())) {
-      apiProps.url = url + route
+      apiProps.url = url + loginRoute
+      apiProps.params = { email: email, password: password}
       return dispatch(fetchDispatch(apiProps))
     }
   }
 }
 
-export default { fetchUsers }
+function signOut () {
+  return (dispatch, getState) => {
+    return dispatch({ type: 'USER_SIGN_OUT' })
+    }
+}
+
+
+
+export default { checkLoginDetails, signOut }

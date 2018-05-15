@@ -8,10 +8,6 @@ function handleUserActions (state, action) {
     case 'RECEIVE_ALL_USERS':
       const userDataAll = action.response.data
       return {
-<<<<<<< HEAD
-        logged:true,
-=======
->>>>>>> 4edd1bc38ab425d7a36af0ea36e88e53bdd7d095
         isFetching: false,
         users: userDataAll
       }
@@ -24,8 +20,4 @@ function userReducer (state = {}, action) {
   return Object.assign({}, state, handleUserActions(state, action))
 }
 
-<<<<<<< HEAD
 export default userReducer
-=======
-export default userReducer
->>>>>>> 4edd1bc38ab425d7a36af0ea36e88e53bdd7d095
