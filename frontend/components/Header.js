@@ -36,6 +36,9 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/payment">Stripe payment</Link>
+          </Menu.Item>
 
           {!user.logged &&
             <Menu.Item position='right'>
@@ -47,9 +50,9 @@ class Header extends Component {
               </Menu.Item>
             </Menu.Item>
           }
-          {user.email && 
+          {user.email &&
             <Segment>
-            {user.email} 
+            {user.email}
               <Button secondary className='button' onClick={this.signOut}>SignOut</Button>
             </Segment>}
        </Menu>

@@ -13,6 +13,7 @@ import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
 
+import StripePaymentPage from './components/StripePaymentPage'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
@@ -37,6 +38,8 @@ class App extends React.Component {
 
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
+
+            <Route location={location} path='/payment' exact component={StripePaymentPage} />
 
             </div>
           )}

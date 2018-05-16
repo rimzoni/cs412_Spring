@@ -3,6 +3,8 @@ const app = express()
 let bodyParser = require('body-parser')
 let cors = require('cors')
 
+const stripe = require('./stripeConf')
+
 var User = require('./user')
 var Task = require('./task')
 // add
@@ -228,6 +230,38 @@ Task.forge(task)
           res.status(500).json({error: true, data: {error: err, message: err.message}})
         })
 })
+// payment
+app.get('/payment/stripe', (req, res) => {
+  res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
+})
+app.post('/payment/stripe', (req, res) => {
+  stripe.customers.create({
+    email: req.body.email,
+    source: req.body.source
+  }).then(function (customer) {
+    // YOUR CODE: Save the customer ID and other info in a database for later.
+    console.log(customer)
+    return stripe.charges.create({
+      description: req.body.description,
+      source: req.body.card,
+      amount: req.body.amount,
+      currency: req.body.currency,
+      customer: customer.id
+    }, postStripeCharge(res))
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
+const postStripeCharge = res => (stripeErr, stripeRes) => {
+  if (stripeErr) {
+    console.log(stripeErr)
+    res.status(500).send({ error: stripeErr })
+  } else {
+    res.status(200).send({ success: stripeRes })
+  }
+}
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
