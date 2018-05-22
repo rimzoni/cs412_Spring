@@ -50,7 +50,8 @@ app.get('/userByName', (req, res) => {
 			res.status(500).json({error: true, data: {error: err,
         message: err.message}});
 		  })
-})
+})// update getByUserId
+
 app.get('/userById', (req, res) => {
 	console.log(req.query.id);
   let userId = req.query.id
@@ -150,6 +151,21 @@ app.get('/user/delete', (req, res) => {
     console.log(err)
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
+})//addd create task and modify update
+
+app.get('/user/tasks', (req, res) => {
+	// console.log(req.query.id);
+  let userId = req.query.userId
+  Task.byUserId(taskStatus)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
 })
 
 // tasks routes
@@ -248,13 +264,12 @@ Task.forge(task)
           res.status(500).json({error: true, data: {error: err, message: err.message}})
         })
 })
-
 app.post('/task/create', (req, res) => {
   console.log(req.body);
     let task = {
       'id': req.body.id,
       'name': req.body.name,
-      'userId': req.body.userId,
+		  'userId': req.body.userId,
       'description': req.body.description,
       'status': req.body.status
       }
@@ -286,7 +301,6 @@ app.get('/task/delete', (req, res) => {
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
 })
-
 // payment
 app.get('/payment/stripe', (req, res) => {
   res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
