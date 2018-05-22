@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Button, Form, Table, Container } from 'semantic-ui-react'
+import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -60,20 +60,6 @@ class TasksComponent extends Component {
   render () {
     return (
       <Container>
-      <Form>
-    <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
-    </Form.Field>
-    <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
-    </Form.Field>
-    <Form.Field>
-      <Checkbox label='I agree to the Terms and Conditions' />
-    </Form.Field>
-    <Button type='submit'>Submit</Button>
-  </Form>
       <Header />
       <Button primary className='button' onClick={this.handleClick}>Show all tasks</Button>
       <Button secondary className='button' onClick={this.handleClearClick}>Clear all tasks</Button>

@@ -153,20 +153,6 @@ app.get('/user/delete', (req, res) => {
   })
 })//addd create task and modify update
 
-app.get('/user/tasks', (req, res) => {
-	// console.log(req.query.id);
-  let userId = req.query.userId
-  Task.byUserId(taskStatus)
-		.then(function (tasks) {
-		  res.status(200)
-			.json(tasks)
-		})
-		.catch(function (err) {
-			console.log(err)
-			res.status(500).json({error: true, data: {error: err,
-        message: err.message}});
-		  })
-})
 
 // tasks routes
 // http://localhost:3000/tasks
