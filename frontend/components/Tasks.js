@@ -5,22 +5,37 @@ import Header from './Header'
 import { Button, Form, Table, Container } from 'semantic-ui-react'
 import axios from 'axios'
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { taskActions } from '../actions'
+
+
 class TasksComponent extends Component {
-  constructor () {
+  constructor (props) {
     super()
     this.state = {
       tasks: []
     }
 
+    this.props = props
+    console.log(props)
+
     this.handleClick = this.handleClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleClearClick=  this.handleClearClick.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.actions.fetchTasksByUserId(this.props.loginProps.user.id)
   }
 
   handleClick () {
-    axios.get('http://localhost:3000/tasks')
-        .then(response => this.setState({tasks: response.data}))
-        //.then(response => console.log(response))
+    this.props.actions.fetchAllTasks()
+  }
+
+  handleClearClick () {
+    this.props.actions.clearTasks()
   }
 
   handleClear () {
@@ -45,8 +60,23 @@ class TasksComponent extends Component {
   render () {
     return (
       <Container>
+      <Form>
+    <Form.Field>
+      <label>First Name</label>
+      <input placeholder='First Name' />
+    </Form.Field>
+    <Form.Field>
+      <label>Last Name</label>
+      <input placeholder='Last Name' />
+    </Form.Field>
+    <Form.Field>
+      <Checkbox label='I agree to the Terms and Conditions' />
+    </Form.Field>
+    <Button type='submit'>Submit</Button>
+  </Form>
       <Header />
       <Button primary className='button' onClick={this.handleClick}>Show all tasks</Button>
+      <Button secondary className='button' onClick={this.handleClearClick}>Clear all tasks</Button>
       <br/><br/>
       <Form onSubmit={this.handleSubmit}>
        <Form.Field>
@@ -71,7 +101,7 @@ class TasksComponent extends Component {
          </Table.Row>
         </Table.Header>
         <Table.Body>
-         { this.state.tasks.map((task, key) => {
+         { this.props.task.tasks.map((task, key) => {
                    return (
                       <Table.Row key={key}>
                         <Table.Cell>{task.id}</Table.Cell>
@@ -89,4 +119,23 @@ class TasksComponent extends Component {
     )
   }
 }
-export default TasksComponent
+function mapStateToProps (state) {
+  return {
+    user: state.user,
+    loginProps: state.loginProps,
+    task: state.task
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(
+      Object.assign(
+        {},
+        taskActions
+      ),
+      dispatch
+    )
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
+

@@ -18,6 +18,11 @@ import StripePaymentPage from './components/StripePaymentPage'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 class App extends React.Component {
+  constructor (props) {
+    super()
+    this.props = props
+    console.log(props)
+  }
   componentWillMount () {
     //call load session
   }
@@ -33,9 +38,12 @@ class App extends React.Component {
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
 
             <Route location={location} path='/custom' exact component={Custom} />
-            <Route location={location} path='/tasks' exact component={TasksComponent} />
-            <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
-
+            {this.props.loginProps.logged && 
+              <div>
+                <Route location={location} path='/tasks' exact component={TasksComponent} />
+                <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
+              </div>}
+          
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
 
@@ -52,6 +60,7 @@ class App extends React.Component {
 export default connect(
   state => ({
     errorMessage: state.errorMessage,
-    user: state.user}),
+    user: state.user,
+    loginProps: state.loginProps}),
   { resetErrorMessage: resetErrorMessage}
 )(App)

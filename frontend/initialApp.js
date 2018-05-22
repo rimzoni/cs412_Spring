@@ -22,11 +22,14 @@ let loginPropsCached = {
  }
 const initialAppState = {
   user: {
-    logged: false,
     isFetching: false,
     users:[]
   },
   loginProps: loginPropsCached,
+  task: {
+      isFetching: false,
+      tasks:[]
+  },
   errorMessage: null
 }
 

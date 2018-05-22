@@ -54,10 +54,11 @@ app.get('/userByName', (req, res) => {
 app.get('/userById', (req, res) => {
 	console.log(req.query.id);
   let userId = req.query.id
-  User.forge({id: userId}).fetch().then(function (users) {
+  User.byId(userId).then(function (users) {
     if (!users) {
       return res.status(404).json({ error: true, message: 'user not found' })
     } else {
+      console.log(users)
       res.status(200).json(users)
     }
   }).catch((err) => {
@@ -210,11 +211,28 @@ app.get('/task/status', (req, res) => {
         message: err.message}});
 		  })
 })
+
+// http://localhost:3000/user/tasks
+app.get('/user/tasks', (req, res) => {
+	// console.log(req.query.id);
+  let userId = req.query.userId
+  Task.byUserId(userId)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
 app.post('/task/update', (req, res) => {
 	console.log(req.body);
   let task = {
   'id': req.body.task.id,
   'name': req.body.task.name,
+  'userId': req.body.userId,
   'description': req.body.task.description,
   'status': req.body.task.status
   }
@@ -230,6 +248,45 @@ Task.forge(task)
           res.status(500).json({error: true, data: {error: err, message: err.message}})
         })
 })
+
+app.post('/task/create', (req, res) => {
+  console.log(req.body);
+    let task = {
+      'id': req.body.id,
+      'name': req.body.name,
+      'userId': req.body.userId,
+      'description': req.body.description,
+      'status': req.body.status
+      }
+    Task.forge(task)
+            .save()
+            .then((task) => {
+              console.log(task)
+              res.status(200)
+                .json(task)
+            })
+            .catch((err) => {
+              console.log(err)
+              res.status(500).json({error: true, data: {error: err, message: err.message}})
+            })
+})
+
+app.get('/task/delete', (req, res) => {
+	console.log(req.query.id);
+  let taskId = req.query.id
+  Task.forge({id: taskId}).fetch().then(function (tasks) {
+    if (!tasks) {
+      return res.status(404).json({ error: true, message: 'task not found' })
+    } else {
+      tasks.destroy()
+      res.status(200).json({ error: false, data: { message: 'task removed' } })
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
 // payment
 app.get('/payment/stripe', (req, res) => {
   res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
