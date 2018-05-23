@@ -214,6 +214,7 @@ app.get('/task/status', (req, res) => {
 		  })
 })
 
+
 // http://localhost:3000/user/tasks
 app.get('/user/tasks', (req, res) => {
 	// console.log(req.query.id);
@@ -236,7 +237,8 @@ app.post('/task/update', (req, res) => {
   'name': req.body.task.name,
   'userId': req.body.userId,
   'description': req.body.task.description,
-  'status': req.body.task.status
+  'status': req.body.task.status,
+  'addr_059': req.body.task.addr_059
   }
 Task.forge(task)
         .save()
@@ -257,7 +259,8 @@ app.post('/task/create', (req, res) => {
       'name': req.body.name,
 		  'userId': req.body.userId,
       'description': req.body.description,
-      'status': req.body.status
+      'status': req.body.status,
+      'addr_059':req.body.addr_059
       }
     Task.forge(task)
             .save()
