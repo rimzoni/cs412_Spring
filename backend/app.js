@@ -236,7 +236,8 @@ app.post('/task/update', (req, res) => {
   'name': req.body.task.name,
   'userId': req.body.userId,
   'description': req.body.task.description,
-  'status': req.body.task.status
+  'status': req.body.task.status,
+  'addr_058': req.body.task.addr_058
   }
 Task.forge(task)
         .save()
@@ -257,7 +258,8 @@ app.post('/task/create', (req, res) => {
       'name': req.body.name,
 		  'userId': req.body.userId,
       'description': req.body.description,
-      'status': req.body.status
+      'status': req.body.status,
+      'addr_058': req.body.task.addr_058
       }
     Task.forge(task)
             .save()
