@@ -1,10 +1,9 @@
 CREATE TABLE "public"."tasks" (
+    "addr_140" character varying,
     "id" serial,
     "name" character varying,
     "description" character varying,
     "status" character varying,
-    "userId" integer,
-    "addr_031" character varying,
     PRIMARY KEY ("id")
 );
 
