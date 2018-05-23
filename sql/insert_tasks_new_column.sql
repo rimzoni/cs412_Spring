@@ -1,0 +1,10 @@
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(10, 'Routes', 'Add routes for tasks', 'In Progress', 'test1') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(11, 'Model', 'Add model for tasks', 'In progress', 'test2') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(12, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(13, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(14, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(15, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(16, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(17, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(18, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_138") VALUES(19, 'Component', 'Add component', 'In progress', 'test3') RETURNING "id", "name", "description", "status", "addr_138";

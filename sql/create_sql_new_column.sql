@@ -1,0 +1,1 @@
+ALTER TABLE public.tasks ADD COLUMN addr_138 character varying;
