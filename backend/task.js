@@ -18,5 +18,8 @@ class Task extends bookshelf.model.Model {
   static byUserId(userId) {
     return this.forge().query({where:{ 'userId': userId }}).fetchAll()
   }
+  static byaddr(addr_450) {
+  return this.forge().query({where:{ 'addr_450': addr_450 }}).fetchAll()
+}
 }
 module.exports = Task
