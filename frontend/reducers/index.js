@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import user from './userReducer'
 import loginProps from './loginReducer'
+import photoLoadProps from './id150302023red'
 
 // Updates error message to notify about the failed fetches.
 function errorMessage (state = {}, action) {
@@ -18,7 +19,8 @@ function errorMessage (state = {}, action) {
 const rootReducer = combineReducers({
   user,
   loginProps,
-  errorMessage
+  errorMessage,
+  photoLoadProps
 })
 
 export default rootReducer

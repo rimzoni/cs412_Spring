@@ -4,6 +4,10 @@ import axios from 'axios'
 import AppHeader from './Header'
 import { Button, Form, Container, Header, Message } from 'semantic-ui-react'
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { userActions } from '../actions'
+
 
 class UserDetail extends Component {
   constructor () {
@@ -29,15 +33,19 @@ class UserDetail extends Component {
     }
   }
   getUserById (userId) {
-    axios.get('http://localhost:3000/userById?id='+userId)
-        .then(response => this.setState({user: response.data}))
+    this.props.actions.fetchUsersById(userId)
+
+    //axios.get('http://localhost:3000/userById?id='+userId)
+        //.then(response => this.setState({user: response.data}))
         //.then(response => console.log(response))
   }
   removeUserById (e,userId) {
     e.preventDefault()
-  	e.stopPropagation()
-    axios.get('http://localhost:3000/user/delete?id='+userId)
-        .then(this.props.history.push('/users'))
+    e.stopPropagation()
+    this.props.actions.removeUsersById(userId)
+
+    //axios.get('http://localhost:3000/user/delete?id='+userId)
+        //.then(this.props.history.push('/users'))
   }
 
   validateFields(name, email, password){
@@ -173,4 +181,16 @@ class UserDetail extends Component {
      )
    }
  }
- export default UserDetail
+ const mapStateToProps = ({user}) => user
+ const mapDispatchToProps = dispatch => {
+   return {
+     actions: bindActionCreators(
+       Object.assign(
+         {},
+         userActions
+       ),
+       dispatch
+     )
+   }
+ }
+ export default connect(mapStateToProps, mapDispatchToProps)(UserDetail)

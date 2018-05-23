@@ -8,6 +8,7 @@ class UserTable extends Component {
     this.state = {
       users: []
     }
+  }
 
     render () {
       return (
@@ -37,4 +38,6 @@ class UserTable extends Component {
      )
    }
  }
+
+
  export default UserTable

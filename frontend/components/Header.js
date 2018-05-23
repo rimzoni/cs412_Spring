@@ -4,7 +4,7 @@ import { Menu, Segment, Button } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { userActions, loginActions } from '../actions'
+import { userActions, loginActions, id150302023action } from '../actions'
 
 class Header extends Component {
   constructor(props){
@@ -39,6 +39,10 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/payment">Stripe payment</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/id150302023Comp">ID150302023</Link>
+          </Menu.Item>
+
 
           {!user.logged &&
             <Menu.Item position='right'>
@@ -73,7 +77,8 @@ const mapDispatchToProps = dispatch => {
       Object.assign(
         {},
         userActions,
-        loginActions
+        loginActions,
+        id150302023action
       ),
       dispatch
     )

@@ -1,5 +1,6 @@
 import userActions from './userActions'
 import loginActions from './loginActions'
+import id150302023action from './id150302023action'
 
 function resetErrorMessage () {
   return { type: 'RESET_ERROR_MESSAGE' }
@@ -8,5 +9,6 @@ function resetErrorMessage () {
 export {
   resetErrorMessage,
   userActions,
-  loginActions
+  loginActions,
+  id150302023action
 }
