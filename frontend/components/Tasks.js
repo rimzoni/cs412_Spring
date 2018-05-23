@@ -87,7 +87,7 @@ class TasksComponent extends Component {
                      </Feed.Label>
                      <Feed.Content>
                      <Feed.Date>{task.name}</Feed.Date>
-                     <Feed.Extra>{task.addr_063}</Feed.Extra>
+                     <Feed.Extra>{task.addr_055}</Feed.Extra>
                      <Feed.User>{task.status}</Feed.User>
                      <Feed.Summary>{task.description}</Feed.Summary>
                      <Feed.Meta>
