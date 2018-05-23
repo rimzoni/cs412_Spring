@@ -214,6 +214,23 @@ app.get('/task/status', (req, res) => {
 		  })
 })
 
+app.get('/task/addr_160', (req, res) => {
+	// console.log(req.query.id);
+  let taskStatus = req.query.status
+  Task.byStatus(taskStatus)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
+
+
 // http://localhost:3000/user/tasks
 app.get('/user/tasks', (req, res) => {
 	// console.log(req.query.id);
