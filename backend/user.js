@@ -4,7 +4,7 @@ let Task = require('./task')
 const User = bookshelf.model.Model.extend({
   tableName: 'User',
   tasks: function(){
-    return this.hasMany(Task, ['userId']);
+    return this.hasMany(Task, ['userid']);
 },
 }, {
   byId: function (id) {

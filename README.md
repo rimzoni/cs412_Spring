@@ -20,7 +20,7 @@ https://learncodethehardway.org/unix/bash_cheat_sheet.pdf
 To create the DB user (should already exist on the lab computers) run the following query on the psql (don't forget to enter real password instead of xxxxx):
 
 ```
-CREATE USER iuslab WITH
+CREATE USER AzizBoudela WITH
 	LOGIN
 	NOSUPERUSER
 	CREATEDB
@@ -28,7 +28,7 @@ CREATE USER iuslab WITH
 	INHERIT
 	NOREPLICATION
 	CONNECTION LIMIT -1
-	PASSWORD 'xxxxxx';
+	PASSWORD '12345678';
 ```
 
 To create database from the comand line (CLI) enter the following command:
@@ -65,17 +65,36 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."User"
-    OWNER to iuslab;
+    OWNER to AzizBoudela;
+```
+
+```
+CREATE TABLE public."tasks"
+(
+    id serial,
+    name character varying,
+    userId int,
+    description character varying,
+    status character varying,
+    PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."tasks"
+    OWNER to aziz2;
 ```
 
 To show records from User table run the following query in psql:
 
 ```
-SELECT * FROM public.User;
+SELECT * FROM public."User";
 ```
 
 To insert new row into table "User", run the following command:
 
 ```
-INSERT INTO public.User (name,email) VALUES ('john','john@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('john','john@gmail.com');
 ```
