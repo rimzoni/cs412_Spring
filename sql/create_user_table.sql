@@ -11,4 +11,6 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."User"
+  ADD COLUMN "token" character varying,
+  ADD COLUMN "password" character varying;
     OWNER to iuslab;

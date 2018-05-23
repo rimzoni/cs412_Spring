@@ -1,4 +1,10 @@
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In progress') RETURNING "id", "name", "description", "status";
 INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(2, 'Model', 'Add model for tasks', 'In progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "status";
-
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(4, 'Top', 'Add Top for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(5, 'Place', 'Add Place for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(6, 'City', 'Add City for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(7, 'House', 'Add House for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(8, 'Base', 'Add Base for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(9, 'Year', 'Add Year for tasks', 'In progress') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(10, 'Country', 'Add Country for tasks', 'In progress') RETURNING "id", "name", "description", "status";

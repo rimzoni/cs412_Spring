@@ -1,1 +1,10 @@
-INSERT INTO public.User (name,email) VALUES ('john','john@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('John','john@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Jo','jo@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Amra','amra@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Marko','marko@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Milica','milica@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Prolaz','prolaz@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Amin','amin@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Please','please@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Ana','ana@gmail.com');
+INSERT INTO public.User (name,email) VALUES ('Amir','amir@gmail.com');
