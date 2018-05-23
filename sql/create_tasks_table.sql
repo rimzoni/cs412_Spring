@@ -2,7 +2,7 @@ CREATE TABLE "public"."tasks" (
     "id" serial,
     "name" character varying,
     "description" character varying,
-    "status" character varying,
+    "addr_140" character varying,
     PRIMARY KEY ("id")
 );
 

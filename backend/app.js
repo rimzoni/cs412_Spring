@@ -24,7 +24,18 @@ app.all('/*', (req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT')
   next()
 })
-
+app.get('/task/addr_199', (req, res) => {
+ let addr_199 = req.query.addr_199
+  Task.byAddr199(addr_199)
+	.then(function (tasks) {
+	  res.status(200)
+		.json(tasks)
+		})
+		.catch(function (err) {
+		console.log(err)
+		res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
 app.get('/users', (req, res) => {
 	User.all()
 		.then(function (users) {

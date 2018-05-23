@@ -1,4 +1,10 @@
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(2, 'Model', 'Add model for tasks', 'In progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "status";
-
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(1, 'Keno', 'Ma dobar', 'Vraca') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(2, 'Luca', 'Idiot', 'Trudi se') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(4, 'Keno', 'Ma dobar', 'Vraca') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(5, 'Luca', 'Idiot', 'Trudi se') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(6, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(7, 'Keno', 'Ma dobar', 'Vraca') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(8, 'Luca', 'Idiot', 'Trudi se') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(9, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "addr_140";
+INSERT INTO "public"."tasks"("id", "name", "description", "addr_199") VALUES(10, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "addr_140";
