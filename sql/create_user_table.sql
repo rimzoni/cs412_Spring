@@ -3,6 +3,7 @@ CREATE TABLE public."User"
     id serial,
     name character varying,
     email character varying,
+    addr_048 character varying,
     PRIMARY KEY (id)
 )
 WITH (
@@ -11,4 +12,4 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public."User"
-    OWNER to iuslab;
+    OWNER to aziz2;
