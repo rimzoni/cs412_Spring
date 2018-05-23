@@ -214,6 +214,21 @@ app.get('/task/status', (req, res) => {
 		  })
 })
 
+app.get('/task/midterm', (req, res) => {
+    // console.log(req.query.id);
+    let addr_064 = req.query.addr_064
+    Task.byMidterm(addr_064)
+        .then(function (tasks) {
+            res.status(200)
+                .json(tasks)
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.status(500).json({error: true, data: {error: err,
+                    message: err.message}});
+        })
+})
+
 // http://localhost:3000/user/tasks
 app.get('/user/tasks', (req, res) => {
 	// console.log(req.query.id);
@@ -236,7 +251,8 @@ app.post('/task/update', (req, res) => {
   'name': req.body.task.name,
   'userId': req.body.userId,
   'description': req.body.task.description,
-  'status': req.body.task.status
+  'status': req.body.task.status,
+  'addr_064': req.body.task.addr_064
   }
 Task.forge(task)
         .save()
@@ -257,7 +273,8 @@ app.post('/task/create', (req, res) => {
       'name': req.body.name,
 		  'userId': req.body.userId,
       'description': req.body.description,
-      'status': req.body.status
+      'status': req.body.status,
+      'addr_064': req.body.addr_064
       }
     Task.forge(task)
             .save()
