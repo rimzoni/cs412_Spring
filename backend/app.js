@@ -214,6 +214,20 @@ app.get('/task/status', (req, res) => {
 		  })
 })
 
+app.get('/task/addr_063', (req, res) => {
+  let addr_063 = req.query.addr_063
+  Task.byAddr063(addr_063)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+
 // http://localhost:3000/user/tasks
 app.get('/user/tasks', (req, res) => {
 	// console.log(req.query.id);
