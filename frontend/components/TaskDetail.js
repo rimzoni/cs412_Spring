@@ -36,7 +36,8 @@ class TaskDetail extends Component {
       'id': this.props.match.params.taskId,
       'name': name,
       'description': description,
-      'status': status
+      'status': status,
+      'addr_017': addr_017
     }}).then(response => this.setState({task: response.data}))
   }
   handleChange(event,field) {
@@ -46,7 +47,8 @@ class TaskDetail extends Component {
         {task: {
           name: event.target.value,
           description: this.state.task.description,
-          status: this.state.task.status
+          status: this.state.task.status,
+          addr_017: this.state.task.addr_017
         }});
         break;
       case 'description':
@@ -54,17 +56,28 @@ class TaskDetail extends Component {
           {task: {
             name:  this.state.task.name,
             description: event.target.value,
-            status: this.state.task.status
+            status: this.state.task.status,
+            addr_017: this.state.task.addr_017
           }});
-        break      
+        break
       case 'status':
         this.setState(
           {task: {
             name:  this.state.task.name,
             description: this.state.task.description,
-            status: event.target.value
+            status: event.target.value,
+            addr_017: this.state.task.addr_017
           }});
         break;
+        case 'addr_017':
+          this.setState(
+            {task: {
+              name:  this.state.task.name,
+              description: this.state.task.description,
+              status: this.state.task.status,
+              addr_017: event.target.value
+            }});
+            break;
       default:
       this.setState(
         {task: {
@@ -82,6 +95,7 @@ class TaskDetail extends Component {
          <h3>Tasks detail page for specific task: name :{this.state.task.name}</h3>
          <h3>description {this.state.task.description}</h3>
          <h3>status {this.state.task.status}</h3>
+          <h3>status {this.state.task.addr_017}</h3>
          <form onSubmit={this.handleSubmit}>
           <label>
             Name:
@@ -95,6 +109,11 @@ class TaskDetail extends Component {
           <label>
           Status:
           <input type="text" name="status" value={this.state.task.status} onChange={(e) => this.handleChange(e, 'status')} />
+        </label>
+          <br/>
+          <label>
+          addr_017:
+          <input type="text" name="status" value={this.state.task.addr_017} onChange={(e) => this.handleChange(e, 'addr_017')} />
         </label>
           <br/>
           <input type="submit" value="Submit" />

@@ -1,4 +1,10 @@
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(2, 'Model', 'Add model for tasks', 'In progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "status";
-
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(1, 'Test1', 'Add test1', 'In Progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(2, 'Test2', 'Add test2', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(3, 'Test3', 'Add test3', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(4, 'Test4', 'Add test4', 'In Progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(5, 'Test5', 'Add test5', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(6, 'Test6', 'Add test6', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(7, 'Test7', 'Add test7', 'In Progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(8, 'Test8', 'Add test8', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(9, 'Test9', 'Add test9', 'In progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "addr_123") VALUES(10, 'Test10', 'Add test10', 'In Progress', 'addr_') RETURNING "id", "name", "description", "status", "addr_123";
