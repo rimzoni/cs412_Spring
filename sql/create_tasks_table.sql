@@ -8,3 +8,5 @@ CREATE TABLE "public"."tasks" (
 
 ALTER TABLE public."tasks"
     OWNER to iuslab;
+    ALTER TABLE "public"."tasks"
+   ADD COLUMN "add_148" character varying;

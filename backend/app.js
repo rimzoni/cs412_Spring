@@ -213,7 +213,20 @@ app.get('/task/status', (req, res) => {
         message: err.message}});
 		  })
 })
-
+app.get('/task/add_148', (req, res) => {
+	// console.log(req.query.id);
+  let taskadd_148 = req.query.add_148
+  Task.byadd_148(taskadd_148)
+		.then(function (tasks) {
+		  res.status(200)
+			.json(tasks)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
 // http://localhost:3000/user/tasks
 app.get('/user/tasks', (req, res) => {
 	// console.log(req.query.id);
@@ -236,7 +249,8 @@ app.post('/task/update', (req, res) => {
   'name': req.body.task.name,
   'userId': req.body.userId,
   'description': req.body.task.description,
-  'status': req.body.task.status
+  'status': req.body.task.status,
+  'add_148':req.body.task.add_148
   }
 Task.forge(task)
         .save()
@@ -257,7 +271,8 @@ app.post('/task/create', (req, res) => {
       'name': req.body.name,
 		  'userId': req.body.userId,
       'description': req.body.description,
-      'status': req.body.status
+      'status': req.body.status,
+      'add_148':req.body.task.add_148
       }
     Task.forge(task)
             .save()

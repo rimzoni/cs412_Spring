@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Header from './Header'
 import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
 import axios from 'axios'
+import { Feed, Icon } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -76,6 +77,16 @@ class TasksComponent extends Component {
        <Button type='submit'>Filter by name and status</Button>
       </Form>
       <br/>
+      <Feed>
+         <Feed.Event>
+           <Feed.Label icon='pencil' />
+           <Feed.Content
+             date="name"
+             summary="description"
+           />
+         </Feed.Event>
+       </Feed>
+
       <Table celled padded>
         <Table.Header>
          <Table.Row>
@@ -83,6 +94,8 @@ class TasksComponent extends Component {
           <Table.HeaderCell>Name</Table.HeaderCell>
           <Table.HeaderCell>Description</Table.HeaderCell>
           <Table.HeaderCell>Status</Table.HeaderCell>
+          <Table.HeaderCell>userId</Table.HeaderCell>
+          <Table.HeaderCell>add_148</Table.HeaderCell>
           <Table.HeaderCell>Action</Table.HeaderCell>
          </Table.Row>
         </Table.Header>
@@ -94,6 +107,8 @@ class TasksComponent extends Component {
                         <Table.Cell>{task.name}</Table.Cell>
                         <Table.Cell>{task.description}</Table.Cell>
                         <Table.Cell>{task.status}</Table.Cell>
+                        <Table.Cell>{task.userId}</Table.Cell>
+                        <Table.Cell>{task.add_148}</Table.Cell>
                         <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
                       </Table.Row>
                     )
@@ -124,4 +139,3 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
-

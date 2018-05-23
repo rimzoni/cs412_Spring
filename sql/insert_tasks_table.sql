@@ -1,4 +1,10 @@
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(2, 'Model', 'Add model for tasks', 'In progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "status";
-
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress',1,'A') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(2, 'Routes', 'Add routes for tasks', 'In Progress',2,'b') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(3, 'Routes', 'Add routes for tasks', 'In Progress',3,'c') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(4, 'Routes', 'Add routes for tasks', 'In Progress',4,'d') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(5, 'Routes', 'Add routes for tasks', 'In Progress',5,'e') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(6, 'Routes', 'Add routes for tasks', 'In Progress',6,'f') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(7, 'Routes', 'Add routes for tasks', 'In Progress',7,'h') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(8, 'Routes', 'Add routes for tasks', 'In Progress',8,'i') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(9, 'Routes', 'Add routes for tasks', 'In Progress',9,'k') RETURNING "id", "name", "description", "status";
+INSERT INTO "public"."tasks"("id", "name", "description", "status", "userId","add_148") VALUES(10, 'Routes', 'Add routes for tasks', 'In Progress',10,'k') RETURNING "id", "name", "description", "status";
