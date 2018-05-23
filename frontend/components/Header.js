@@ -33,7 +33,7 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/custom">Custom</Link>
           </Menu.Item>
-          {this.props.loginProps.logged && 
+          {this.props.loginProps.logged &&
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
@@ -50,6 +50,9 @@ class Header extends Component {
               <Menu.Item position='right'>
                 <Link to="/signup">Signup</Link>
               </Menu.Item>
+              <Menu.Item>
+              <Link to="/Proj">140320101</Link>
+            </Menu.Item>
             </Menu.Item>
           }
           {user.email &&

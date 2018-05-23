@@ -1,4 +1,10 @@
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(2, 'Model', 'Add model for tasks', 'In progress') RETURNING "id", "name", "description", "status";
-INSERT INTO "public"."tasks"("id", "name", "description", "status") VALUES(3, 'Component', 'Add component', 'In progress') RETURNING "id", "name", "description", "status";
-
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(1, 'Routes', 'Add routes for tasks', 'In Progress','test1') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(2, 'Model', 'Add model for tasks', 'In progress','test2') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(3, 'Component', 'Add component', 'In progress','test3') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(4, 'Routes', 'Add routes for tasks', 'In Progress','test4') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(5, 'Model', 'Add model for tasks', 'In progress','test5') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(6, 'Component', 'Add component', 'In progress','test6') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(7, 'Routes', 'Add routes for tasks', 'In Progress','test7') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(8, 'Model', 'Add model for tasks', 'In progress','test8') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(9, 'Component', 'Add component', 'In progress','test9') RETURNING "id", "name", "description", "status","addr_101";
+INSERT INTO "public"."tasks"("id", "name", "description", "status","addr_101") VALUES(10, 'Component', 'Add component', 'In progress','test10') RETURNING "id", "name", "description", "status","addr_101";

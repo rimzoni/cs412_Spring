@@ -3,6 +3,8 @@ CREATE TABLE "public"."tasks" (
     "name" character varying,
     "description" character varying,
     "status" character varying,
+    "addr_101" character varying,
+
     PRIMARY KEY ("id")
 );
 
