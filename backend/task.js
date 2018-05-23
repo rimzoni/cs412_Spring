@@ -6,6 +6,9 @@ class Task extends bookshelf.model.Model {
   static all () {
     return this.forge().fetchAll()
   }
+  static by addr_165(addr_165){
+    return this.forge().query({where:{ 'addr_165': addr_165}}).fetchAll
+  }
   static byName(name) {
     return this.forge().query({where:{ 'name': name }}).fetchAll()
   }
