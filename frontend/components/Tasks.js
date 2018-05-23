@@ -85,7 +85,7 @@ class TasksComponent extends Component {
           <Feed.HeaderCell>Name</Feed.HeaderCell>
           <Feed.HeaderCell>Description</Feed.HeaderCell>
           <Feed.HeaderCell>Status</Feed.HeaderCell>
-          <Feed.HeaderCell>Action</Feed.HeaderCell>
+          <Feed.HeaderCell>addr_160</Feed.HeaderCell>
          </Feed.Row>
         </Feed.Header>
         <Feed.Body>
@@ -96,6 +96,8 @@ class TasksComponent extends Component {
                         <Feed.Cell>{task.name}</Feed.Cell>
                         <Feed.Cell>{task.description}</Feed.Cell>
                         <Feed.Cell>{task.status}</Feed.Cell>
+                        <Feed.Cell>{task.addr_160}</Feed.Cell>
+
                         <Feed.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Feed.Cell>
                       </Feed.Row>
                     )
