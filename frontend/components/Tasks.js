@@ -83,7 +83,8 @@ class TasksComponent extends Component {
           <Table.HeaderCell>Name</Table.HeaderCell>
           <Table.HeaderCell>Description</Table.HeaderCell>
           <Table.HeaderCell>Status</Table.HeaderCell>
-          <Table.HeaderCell>Action</Table.HeaderCell>
+          <Table.HeaderCell>userId</Table.HeaderCell>
+          <Table.HeaderCell>addr_174</Table.HeaderCell>
          </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -93,7 +94,9 @@ class TasksComponent extends Component {
                         <Table.Cell>{task.id}</Table.Cell>
                         <Table.Cell>{task.name}</Table.Cell>
                         <Table.Cell>{task.description}</Table.Cell>
-                        <Table.Cell>{task.status}</Table.Cell>
+                         <Table.Cell>{task.status}</Table.Cell>
+                         <Table.Cell>{task.userId}</Table.Cell>
+                        <Table.Cell>{task.addr_174}</Table.Cell>    
                         <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
                       </Table.Row>
                     )
@@ -101,7 +104,7 @@ class TasksComponent extends Component {
          }
          </Table.Body>
         </Table>
-       </Container>
+       </Container> 
     )
   }
 }
