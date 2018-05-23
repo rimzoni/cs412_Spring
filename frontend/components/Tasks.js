@@ -84,6 +84,8 @@ class TasksComponent extends Component {
           <Table.HeaderCell>Description</Table.HeaderCell>
           <Table.HeaderCell>Status</Table.HeaderCell>
           <Table.HeaderCell>Action</Table.HeaderCell>
+          <Table.HeaderCell>ADDR_150</Table.HeaderCell>
+          <Table.HeaderCell>userId</Table.HeaderCell>
          </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -94,6 +96,7 @@ class TasksComponent extends Component {
                         <Table.Cell>{task.name}</Table.Cell>
                         <Table.Cell>{task.description}</Table.Cell>
                         <Table.Cell>{task.status}</Table.Cell>
+                        <Table.Cell>{task.addr_150}</Table.Cell>
                         <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
                       </Table.Row>
                     )
@@ -124,4 +127,3 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
-

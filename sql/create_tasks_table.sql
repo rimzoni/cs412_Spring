@@ -3,8 +3,10 @@ CREATE TABLE "public"."tasks" (
     "name" character varying,
     "description" character varying,
     "status" character varying,
+    "action" character varying,
+    "addr_150" character varying,
     PRIMARY KEY ("id")
 );
 
 ALTER TABLE public."tasks"
-    OWNER to iuslab;
+    OWNER to postgres;
