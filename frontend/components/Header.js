@@ -41,6 +41,9 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/payment">Stripe payment</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/myRoute">My Route</Link>
+          </Menu.Item>
 
           {!user.logged &&
             <Menu.Item position='right'>

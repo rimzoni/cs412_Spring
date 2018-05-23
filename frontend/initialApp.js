@@ -30,6 +30,10 @@ const initialAppState = {
       isFetching: false,
       tasks:[]
   },
+  item: {
+    isFetching: false,
+    items: []
+  },
   errorMessage: null
 }
 

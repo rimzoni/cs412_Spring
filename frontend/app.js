@@ -12,6 +12,7 @@ import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
+import myComponent from './components/c150302007Component'
 
 import StripePaymentPage from './components/StripePaymentPage'
 
@@ -44,6 +45,7 @@ class App extends React.Component {
                 <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
               </div>}
           
+            <Route location={location} path='/myRoute' exact component={myComponent} />
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
 
@@ -61,6 +63,7 @@ export default connect(
   state => ({
     errorMessage: state.errorMessage,
     user: state.user,
+    item: state.item,
     loginProps: state.loginProps}),
   { resetErrorMessage: resetErrorMessage}
 )(App)
