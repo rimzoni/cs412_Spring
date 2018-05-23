@@ -12,6 +12,7 @@ import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
+import A992450Component from './components/A992450Component'
 
 import StripePaymentPage from './components/StripePaymentPage'
 
@@ -35,6 +36,7 @@ class App extends React.Component {
             <Route location={location} path='/custom' exact component={Custom} />
             <Route location={location} path='/tasks' exact component={TasksComponent} />
             <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
+            <Route location={location} path='/A992450' exact component={A992450Component} />
 
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />

@@ -39,6 +39,9 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/payment">Stripe payment</Link>
           </Menu.Item>
+          <Menu.Item>
+          <Link to="/A992450" >Photo</Link>
+          </Menu.Item>
 
           {!user.logged &&
             <Menu.Item position='right'>

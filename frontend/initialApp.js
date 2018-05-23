@@ -27,8 +27,15 @@ const initialAppState = {
     users:[]
   },
   loginProps: loginPropsCached,
+  errorMessage: null,
+  showPic: {
+    isFetching: false,
+    viewPhoto: {}
+  },
   errorMessage: null
 }
+
+
 
 const store = configureStore(initialAppState)
 
