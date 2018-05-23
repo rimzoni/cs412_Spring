@@ -1,0 +1,7 @@
+{
+    "albumId": 2,
+    "id": 52,
+    "title": "eveniet pariatur quia nobis reiciendis laboriosam ea",
+    "url": "http://placehold.it/600/121fa4",
+    "thumbnailUrl": "http://placehold.it/150/121fa4"
+  },
