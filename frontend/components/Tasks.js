@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
+import { Button, Form, Table, Container,  Checkbox, Feed } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -76,31 +76,28 @@ class TasksComponent extends Component {
        <Button type='submit'>Filter by name and status</Button>
       </Form>
       <br/>
-      <Table celled padded>
-        <Table.Header>
-         <Table.Row>
-          <Table.HeaderCell>Id</Table.HeaderCell>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Description</Table.HeaderCell>
-          <Table.HeaderCell>Status</Table.HeaderCell>
-          <Table.HeaderCell>Action</Table.HeaderCell>
-         </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <Feed>
          { this.props.task.tasks.map((task, key) => {
                    return (
-                      <Table.Row key={key}>
-                        <Table.Cell>{task.id}</Table.Cell>
-                        <Table.Cell>{task.name}</Table.Cell>
-                        <Table.Cell>{task.description}</Table.Cell>
-                        <Table.Cell>{task.status}</Table.Cell>
-                        <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
-                      </Table.Row>
+                     <Feed.Event>
+                     <Feed.Label><i aria-hidden="true" class="pencil icon"></i></Feed.Label>
+                      <Feed.Content key={key}>
+                        <Feed.User>{task.status}</Feed.User>
+                        {task.addr_058}
+                        <Feed.Date>{task.name}</Feed.Date>
+                        <Feed.Summary>{task.description}</Feed.Summary>
+
+                        <Feed.Meta>
+                        <Feed.Like>
+                        <i aria-hidden="true" class="like icon"></i>{task.id} Likes
+                        </Feed.Like>
+                        </Feed.Meta>
+                      </Feed.Content>
+                      </Feed.Event>
                     )
                    })
          }
-         </Table.Body>
-        </Table>
+        </Feed>
        </Container>
     )
   }
@@ -124,4 +121,3 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
-
