@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
+import { Button, Form, Table, Feed, Container,  Checkbox } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -124,4 +124,3 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
-
