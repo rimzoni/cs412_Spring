@@ -8,3 +8,10 @@ CREATE TABLE "public"."tasks" (
 
 ALTER TABLE public."tasks"
     OWNER to iuslab;
+
+ALTER TABLE public.”tasks”
+  ADD COLUMN “userId” integer,
+  ADD FOREIGN KEY (“userId”) REFERENCES “public”.”User”(“id”) ON DELETE CASCADE; 
+
+ALTER TABLE public.”tasks”
+  ADD COLUMN "addr_140" character varying;

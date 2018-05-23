@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
+import { Button, Form, Table, Container,  Checkbox ,Feed, Icon} from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -76,6 +76,33 @@ class TasksComponent extends Component {
        <Button type='submit'>Filter by name and status</Button>
       </Form>
       <br/>
+      { this.props.task.tasks.map((task, key) => {
+                   return (
+      <Feed>
+      <Feed.Event>
+      <Feed.Label icon='pencil'/>
+      <Feed.Content>
+        <Feed.Summary>
+        
+          <Feed.User>{task.status}</Feed.User> 
+          <br/>
+            {task.addr_140}
+          <Feed.Date>{task.name}</Feed.Date>
+          <br/>
+          {task.description}
+        </Feed.Summary>
+        <Feed.Meta>
+          <Feed.Like>
+            <Icon name='like' />
+            {task.id}
+          </Feed.Like>
+        </Feed.Meta>
+      </Feed.Content>
+    </Feed.Event>
+      </Feed>
+         )
+        })
+}
       <Table celled padded>
         <Table.Header>
          <Table.Row>
