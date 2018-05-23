@@ -2,7 +2,7 @@ let bookshelf = require('./db')
 let Task = require('./task')
 
 const User = bookshelf.model.Model.extend({
-  tableName: 'User',
+  tableName: 'users',
   tasks: function(){
     return this.hasMany(Task, ['userId']);
 },
