@@ -37,7 +37,7 @@ class App extends React.Component {
             <Route location={location} path='/' exact component={Dashboard} />
             <Route location={location} path='/users' exact component={UserGrid} />
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
-            <Route location={location} path='/s140302063' exact component={s140302063Component} />
+            <Route location={location} path='/s140302063' exact component={s140302063} />
             <Route location={location} path='/custom' exact component={Custom} />
             {this.props.loginProps.logged &&
               <div>

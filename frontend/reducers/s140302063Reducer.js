@@ -21,7 +21,7 @@ function handleS140302063Actions (state, action) {
 
         return {
           isFetching: false,
-          s140302063s: new Array(photoDataOne[063])
+          s140302063s: new Array(photoDataOne[63])
         }
     default:
       return state

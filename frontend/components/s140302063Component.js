@@ -30,6 +30,8 @@ class s140302063Component extends Component {
 
   render () {
     return (
+      <Container>
+      <Header />
       <Table celled padded>
        <Table.Header>
         <Table.Row>
@@ -55,6 +57,7 @@ class s140302063Component extends Component {
         }
         </Table.Body>
        </Table>
+       </Container>
     )
   }
 }
