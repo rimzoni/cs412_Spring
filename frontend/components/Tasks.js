@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Feed, Icon, Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
+import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -76,33 +76,31 @@ class TasksComponent extends Component {
        <Button type='submit'>Filter by name and status</Button>
       </Form>
       <br/>
-
-
-      <Feed>
-
+      <Table celled padded>
+        <Table.Header>
+         <Table.Row>
+          <Table.HeaderCell>Id</Table.HeaderCell>
+          <Table.HeaderCell>Name</Table.HeaderCell>
+          <Table.HeaderCell>Description</Table.HeaderCell>
+          <Table.HeaderCell>Status</Table.HeaderCell>
+          <Table.HeaderCell>Action</Table.HeaderCell>
+         </Table.Row>
+        </Table.Header>
+        <Table.Body>
          { this.props.task.tasks.map((task, key) => {
                    return (
-                      <Feed.Event>
-                        <Feed.Label>
-                          <Icon name='pencil' />
-                        </Feed.Label>
-                        <Feed.Content>
-                          <Feed.Date>{task.name}</Feed.Date>
-                          <Feed.Extra text>{task.addr_007}</Feed.Extra>
-                          <Feed.User>{task.status}</Feed.User>
-                          <Feed.Summary>{task.description}</Feed.Summary>
-                          <Feed.Meta>
-                            <Feed.Like>
-                              <Icon name='like' />
-                              {task.id} Likes
-                            </Feed.Like>
-                          </Feed.Meta>
-                        </Feed.Content>
-                      </Feed.Event>
+                      <Table.Row key={key}>
+                        <Table.Cell>{task.id}</Table.Cell>
+                        <Table.Cell>{task.name}</Table.Cell>
+                        <Table.Cell>{task.description}</Table.Cell>
+                        <Table.Cell>{task.status}</Table.Cell>
+                        <Table.Cell><Link to={'/task/edit/'+task.id}>edit</Link></Table.Cell>
+                      </Table.Row>
                     )
                    })
          }
-        </Feed>
+         </Table.Body>
+        </Table>
        </Container>
     )
   }
@@ -126,3 +124,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
+
