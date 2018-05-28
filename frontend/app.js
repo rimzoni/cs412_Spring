@@ -12,7 +12,7 @@ import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
-
+import o160302174Component from './components/o160302174Component'
 import StripePaymentPage from './components/StripePaymentPage'
 
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -36,6 +36,7 @@ class App extends React.Component {
             <Route location={location} path='/' exact component={Dashboard} />
             <Route location={location} path='/users' exact component={UserGrid} />
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
+            <Route location={location} path='/o160302174Component' exact component={o160302174Component} />
 
             <Route location={location} path='/custom' exact component={Custom} />
             {this.props.loginProps.logged && 
