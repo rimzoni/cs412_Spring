@@ -2,7 +2,7 @@ let bookshelf = require('./db')
 let Task = require('./task')
 
 const User = bookshelf.model.Model.extend({
-  tableName: 'User',
+  tableName: 'UsersMirnes',
   tasks: function(){
     return this.hasMany(Task, ['userId']);
 },
@@ -14,7 +14,7 @@ const User = bookshelf.model.Model.extend({
     return this.forge().fetchAll({withRelated: [ 'tasks']})
   },
   byName: function (name) {
-    return this.forge().query({where:{ 'User.name': name }}).fetchAll({withRelated: [ 'tasks']})
+    return this.forge().query({where:{ 'UsersMirnes.name': name }}).fetchAll({withRelated: [ 'tasks']})
   }
 }
 )
