@@ -1,26 +1,20 @@
-// import { fetchDispatch } from './fetchUtils'
 import axios from 'axios'
-const loginRoute = 'user/login'
-const url = 'http://localhost:3000/'
+const photoRoute = 'photos'
+const url = 'https://jsonplaceholder.typicode.com/'
 const apiProps = {
   url: '',
   params: {},
   types: {
-    request: 'REQUEST_LOGIN_DETAILS',
-    receive: 'RECEIVE_LOGIN_DETAILS'
+    request: 'REQUEST_INFO',
+    receive: 'GET_INFO'
   }
 }
-
-function shouldFetchData ({ loginProps }) {
-  return !loginProps.logged || !loginProps.isFetching
-}
-
 function fetchDispatch (opts) {
   return dispatch => {
     const config = {
       headers: {
         'content-type': 'multipart/form-data',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-zAllow-Origin': '*',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
       }
@@ -38,23 +32,11 @@ function fetchDispatch (opts) {
       .catch(error => dispatch({ type: 'RESET_ERROR_MESSAGE' }))
   }
 }
-
-function checkLoginDetails (email, password) {
+function getInfo (id) {
   return (dispatch, getState) => {
-    if (shouldFetchData(getState())) {
-      apiProps.url = url + loginRoute
-      apiProps.params = { email: email, password: password}
+      apiProps.url = url + photoRoute
+      apiProps.params.id = id;
       return dispatch(fetchDispatch(apiProps))
-    }
   }
 }
-
-function signOut () {
-  return (dispatch, getState) => {
-    return dispatch({ type: 'USER_SIGN_OUT' })
-    }
-}
-
-
-
-export default { checkLoginDetails, signOut }
+export default getInfo;
