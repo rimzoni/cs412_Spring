@@ -33,7 +33,7 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/custom">Custom</Link>
           </Menu.Item>
-          {this.props.loginProps.logged && 
+          {this.props.loginProps.logged &&
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
@@ -41,6 +41,9 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/payment">Stripe payment</Link>
           </Menu.Item>
+          <Menu.Item>
+          <Link to="/i150302082Component">i150302082</Link>
+        </Menu.Item>
 
           {!user.logged &&
             <Menu.Item position='right'>
