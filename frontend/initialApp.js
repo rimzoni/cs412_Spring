@@ -30,6 +30,10 @@ const initialAppState = {
       isFetching: false,
       tasks:[]
   },
+  projectProps: {
+    isFetching: false,
+    viewProject: {}
+  },
   errorMessage: null
 }
 
