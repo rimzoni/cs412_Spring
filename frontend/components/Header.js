@@ -33,6 +33,9 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/custom">Custom</Link>
           </Menu.Item>
+          <Menu.Item>
+              <Link to="/id140302064">140302064</Link>
+          </Menu.Item>
           {this.props.loginProps.logged && 
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
