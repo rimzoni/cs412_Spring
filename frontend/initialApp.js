@@ -30,6 +30,11 @@ const initialAppState = {
       isFetching: false,
       tasks:[]
   },
+  photoProps: {
+    isFetching: false,
+    data: {}
+  },
+ 
   errorMessage: null
 }
 
