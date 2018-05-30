@@ -30,6 +30,10 @@ const initialAppState = {
       isFetching: false,
       tasks:[]
   },
+  s140302059: {
+    isFetching: false,
+    s140302059s:[]
+  },
   errorMessage: null
 }
 

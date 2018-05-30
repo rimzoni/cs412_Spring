@@ -13,6 +13,8 @@ import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
 
+import s140302059 from './components/s140302059Component'
+
 import StripePaymentPage from './components/StripePaymentPage'
 
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -38,16 +40,18 @@ class App extends React.Component {
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
 
             <Route location={location} path='/custom' exact component={Custom} />
-            {this.props.loginProps.logged && 
+            {this.props.loginProps.logged &&
               <div>
                 <Route location={location} path='/tasks' exact component={TasksComponent} />
                 <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
               </div>}
-          
+
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
 
             <Route location={location} path='/payment' exact component={StripePaymentPage} />
+
+            <Route location={location} path='/s140302059' exact component={s140302059} />
 
             </div>
           )}

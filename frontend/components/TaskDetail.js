@@ -56,7 +56,7 @@ class TaskDetail extends Component {
             description: event.target.value,
             status: this.state.task.status
           }});
-        break      
+        break
       case 'status':
         this.setState(
           {task: {

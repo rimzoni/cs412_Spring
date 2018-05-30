@@ -4,7 +4,7 @@ import { Menu, Segment, Button } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { userActions, loginActions } from '../actions'
+import { userActions, loginActions} from '../actions'
 
 class Header extends Component {
   constructor(props){
@@ -33,7 +33,10 @@ class Header extends Component {
           <Menu.Item>
             <Link to="/custom">Custom</Link>
           </Menu.Item>
-          {this.props.loginProps.logged && 
+          <Menu.item>
+            <Link to='/s140302059'>s140302059</Link>
+          </Menu.item>
+          {this.props.loginProps.logged &&
           <Menu.Item>
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
