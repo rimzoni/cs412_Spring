@@ -14,6 +14,7 @@ import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
 
 import StripePaymentPage from './components/StripePaymentPage'
+import s992138Component from './components/s992138Component'
 
 import { BrowserRouter, Route } from 'react-router-dom'
 
@@ -38,15 +39,15 @@ class App extends React.Component {
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
 
             <Route location={location} path='/custom' exact component={Custom} />
-            {this.props.loginProps.logged && 
+            {this.props.loginProps.logged &&
               <div>
                 <Route location={location} path='/tasks' exact component={TasksComponent} />
                 <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
               </div>}
-          
+
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
-
+            <Route location={location} path='/s992138' exact component={s992138Component} />
             <Route location={location} path='/payment' exact component={StripePaymentPage} />
 
             </div>
@@ -61,6 +62,7 @@ export default connect(
   state => ({
     errorMessage: state.errorMessage,
     user: state.user,
+    object: state.object,
     loginProps: state.loginProps}),
   { resetErrorMessage: resetErrorMessage}
 )(App)

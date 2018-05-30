@@ -198,6 +198,21 @@ app.get('/task/id', (req, res) => {
   })
 })
 
+app.get('/task/addr_138', (req, res) => {
+	// console.log(req.query.id);
+  let taskaddr_138 = req.query.addr_138
+  Task.forge({addr_138: taskaddr_138}).fetch().then(function (tasks) {
+    if (!tasks) {
+      return res.status(404).json({ error: true, message: 'task addr_138 not found' })
+    } else {
+      res.status(200).json(tasks)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
 // http://localhost:3000/task/status
 app.get('/task/status', (req, res) => {
 	// console.log(req.query.id);
