@@ -8,4 +8,4 @@ CREATE TABLE "public"."tasks" (
 );
 
 ALTER TABLE public."tasks"
-    OWNER to iuslab;
+    OWNER to postgres;
