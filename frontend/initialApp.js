@@ -20,6 +20,7 @@ let loginPropsCached = {
     user: cachedUser
    }
  }
+
 const initialAppState = {
   user: {
     isFetching: false,
@@ -29,6 +30,10 @@ const initialAppState = {
   task: {
       isFetching: false,
       tasks:[]
+  },
+  project2Props:{
+    isFetching:false,
+    Project2:{}  
   },
   errorMessage: null
 }

@@ -51,7 +51,7 @@ class Header extends Component {
                 <Link to="/signup">Signup</Link>
               </Menu.Item>
               <Menu.Item>
-              <Link to="/Proj">140320101</Link>
+              <Link to="/s140302101">s140320101</Link>
             </Menu.Item>
             </Menu.Item>
           }

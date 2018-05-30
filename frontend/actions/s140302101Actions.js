@@ -5,8 +5,8 @@ const apiProps = {
   url: '',
   params: {},
   types: {
-    request: '',
-    receive: ''
+    request: 'REQUEST_PHOTO',
+    receive: 'RECEIVE_PHOTO'
   }
 }
 

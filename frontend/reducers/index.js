@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import user from './userReducer'
 import loginProps from './loginReducer'
 import task from './taskReducer'
-import project2Props from './Reducer140302101'
+import project2Props from './s140302101Reducer'
 
 // Updates error message to notify about the failed fetches.
 function errorMessage (state = {}, action) {
