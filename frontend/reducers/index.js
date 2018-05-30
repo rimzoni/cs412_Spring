@@ -3,6 +3,9 @@ import user from './userReducer'
 import loginProps from './loginReducer'
 import task from './taskReducer'
 
+import s140302228 from './s140302228Reducer'
+
+
 // Updates error message to notify about the failed fetches.
 function errorMessage (state = {}, action) {
   const { type, error } = action
@@ -20,7 +23,8 @@ const rootReducer = combineReducers({
   user,
   loginProps,
   task,
-  errorMessage
+  errorMessage,
+  s140302228
 })
 
 export default rootReducer

@@ -38,6 +38,11 @@ class Header extends Component {
             <Link to="/tasks">Tasks</Link>
           </Menu.Item>
           }
+
+           <Menu.Item>
+           <Link to="/s140302228">140302228</Link>
+         </Menu.Item>
+         
           <Menu.Item>
             <Link to="/payment">Stripe payment</Link>
           </Menu.Item>
