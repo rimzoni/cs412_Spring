@@ -30,6 +30,11 @@ const initialAppState = {
       isFetching: false,
       tasks:[]
   },
+
+    id140302067: {
+      isFetching: false,
+      pro140302067:[]
+    },
   errorMessage: null
 }
 

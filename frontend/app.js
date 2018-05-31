@@ -8,12 +8,11 @@ import UserGrid from './components/UserGrid'
 import UserDetail from './components/UserDetail'
 import Dashboard from './components/Dashboard'
 import Custom from './components/Custom'
-
 import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
 import SignupPage from './components/SignupPage'
-
+import id140302064 from './components/id140302067Component'
 
 import StripePaymentPage from './components/StripePaymentPage'
 
@@ -50,6 +49,7 @@ class App extends React.Component {
             <Route location={location} path='/signup' exact component={SignupPage} />
 
             <Route location={location} path='/payment' exact component={StripePaymentPage} />
+            <Route location={location} path='/id140302067' exact component={id140302067} />
 
             </div>
           )}
