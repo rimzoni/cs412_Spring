@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
 import axios from 'axios'
-import { Button, Form, Table, Container, Grid } from 'semantic-ui-react'
+import { Button, Form, Container, Grid } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
