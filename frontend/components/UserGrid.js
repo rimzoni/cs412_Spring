@@ -67,21 +67,19 @@ class UserGrid extends Component {
           <Table.HeaderCell>Action</Table.HeaderCell>
          </Table.Row>
         </Table.Header>
-        <Table.Body>
-         { this.props.users.map((user, key) => {
+       </Table>
+         { this.props.users.map((user) => {
                    return (
-                      <Table.Row key={key}>
-                        <Table.Cell>{user.id}</Table.Cell>
-                        <Table.Cell>{user.name}</Table.Cell>
-                        <Table.Cell>{user.email}</Table.Cell>
-                        <Table.Cell>{user.token}</Table.Cell>
-                        <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
-                      </Table.Row>
+                       <div class="ui padded five column grid">
+                           <div class="column">{user.id}</div>
+                           <div class="column">{user.name}</div>
+                           <div class="column">{user.email}</div>
+                           <div class="column">{user.token}</div>
+                           <div class="green column"><Link to={'/user/edit/'+user.id}>edit</Link></div>
+                       </div>
                     )
                    })
          }
-         </Table.Body>
-        </Table>
        </Container>
     )
   }
