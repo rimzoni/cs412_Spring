@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Grid} from 'semantic-ui-react'
 //import './App.css'
 import Header from './Header'
 import axios from 'axios'
@@ -57,35 +58,31 @@ class UserGrid extends Component {
         <Button type='submit'>Filter by name</Button>
        </Form>
        <br/>
-       <Table celled padded>
-        <Table.Header>
-         <Table.Row>
-          <Table.HeaderCell>Id</Table.HeaderCell>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Email</Table.HeaderCell>
-          <Table.HeaderCell>Token</Table.HeaderCell>
-          <Table.HeaderCell>Action</Table.HeaderCell>
-         </Table.Row>
-        </Table.Header>
-        <Table.Body>
+
+
+      <Grid columns={5} divided>
          { this.props.users.map((user, key) => {
-                   return (
-                      <Table.Row key={key}>
-                        <Table.Cell>{user.id}</Table.Cell>
-                        <Table.Cell>{user.name}</Table.Cell>
-                        <Table.Cell>{user.email}</Table.Cell>
-                        <Table.Cell>{user.token}</Table.Cell>
-                        <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
-                      </Table.Row>
-                    )
-                   })
-         }
-         </Table.Body>
-        </Table>
-       </Container>
-    )
-  }
-}
+
+                  return (
+                    <Grid.Row key={key}>
+                     <Grid.Column>{user.id}</Grid.Column>
+                     <Grid.Column>{user.name}</Grid.Column>
+                     <Grid.Column>{user.email}</Grid.Column>
+                     <Grid.Column>{user.token}</Grid.Column>
+                     <Grid.Column color={'orange'}><Link to={'/user/edit/'+user.id}>edit</Link></Grid.Column>
+                    </Grid.Row>
+                  )
+                }
+              )
+            }
+        </Grid>
+        </Container>
+     )
+   }
+ }
+
+
+
 const mapStateToProps = ({user}) => user
 const mapDispatchToProps = dispatch => {
   return {
