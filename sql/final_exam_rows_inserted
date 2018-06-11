@@ -1,0 +1,10 @@
+INSERT INTO public."User" (name,email) VALUES ('Selma','selma@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Lejla','lejla@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Fatima','fatima@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Selma','selma@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Lejla','lejla@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Selma','selma@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Selma','selma@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Lejla','lejla@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Selma','selma@gmail.com');
+INSERT INTO public."User" (name,email) VALUES ('Fatima','fatima@gmail.com');
