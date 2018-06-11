@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
 import axios from 'axios'
-import { Button, Form, Table, Container } from 'semantic-ui-react'
+import { Button, Form, Table, Container, Grid, Image } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -57,6 +57,22 @@ class UserGrid extends Component {
         <Button type='submit'>Filter by name</Button>
        </Form>
        <br/>
+
+       <Grid columns='five' divided>
+       { this.props.users.map((user, key) => {
+                 return (
+                     <Grid.Row>
+                      <Grid.Column>{user.id}</Grid.Column>
+                      <Grid.Column>{user.name}</Grid.Column>
+                      <Grid.Column>{user.email}</Grid.Column>
+                      <Grid.Column>{user.token}</Grid.Column>
+                      <Grid.Column color='purple'><Link to={'/user/edit/'+user.id}>edit</Link></Grid.Column>
+                    </Grid.Row>
+                  )
+         })
+      }
+      </Grid>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
        <Table celled padded>
         <Table.Header>
          <Table.Row>
