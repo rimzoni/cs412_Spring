@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import './App.css'
 import Header from './Header'
 import axios from 'axios'
 import { Button, Form, Table, Container } from 'semantic-ui-react'
-
+import { Grid, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userActions } from '../actions'
@@ -25,9 +24,6 @@ class UserGrid extends Component {
 
   handleClick () {
     this.props.actions.fetchUsers().then(response => this.setState({users: response.data}))
-    // axios.get('http://localhost:3000/users')
-    //     .then(response => this.setState({users: response.data}))
-    //     //.then(response => console.log(response))
   }
 
   handleClear () {
@@ -57,31 +53,20 @@ class UserGrid extends Component {
         <Button type='submit'>Filter by name</Button>
        </Form>
        <br/>
-       <Table celled padded>
-        <Table.Header>
-         <Table.Row>
-          <Table.HeaderCell>Id</Table.HeaderCell>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Email</Table.HeaderCell>
-          <Table.HeaderCell>Token</Table.HeaderCell>
-          <Table.HeaderCell>Action</Table.HeaderCell>
-         </Table.Row>
-        </Table.Header>
-        <Table.Body>
-         { this.props.users.map((user, key) => {
+       <Grid columns = {5} divided>
+  { this.props.users.map((user, key) => {
                    return (
-                      <Table.Row key={key}>
-                        <Table.Cell>{user.id}</Table.Cell>
-                        <Table.Cell>{user.name}</Table.Cell>
-                        <Table.Cell>{user.email}</Table.Cell>
-                        <Table.Cell>{user.token}</Table.Cell>
-                        <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
-                      </Table.Row>
+    <Grid.Row>
+      <Grid.Column>{user.id}</Grid.Column>
+      <Grid.Column>{user.name}</Grid.Column>
+      <Grid.Column>{user.email}</Grid.Column>
+      <Grid.Column>{user.token}</Grid.Column>
+      <Grid.Column color = 'violet'><Link to={'/user/edit/'+user.id}>edit</Link></Grid.Column>
+    </Grid.Row>
                     )
                    })
          }
-         </Table.Body>
-        </Table>
+    </Grid>
        </Container>
     )
   }
