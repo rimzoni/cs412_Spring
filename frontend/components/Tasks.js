@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 //import './App.css'
 import Header from './Header'
-import { Button, Form, Table, Container,  Checkbox } from 'semantic-ui-react'
+import { Button, Form, Table, Container,  Checkbox, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
 import { connect } from 'react-redux'
@@ -89,7 +89,7 @@ class TasksComponent extends Component {
         <Table.Body>
          { this.props.task.tasks.map((task, key) => {
                    return (
-                      <Table.Row key={key}>
+                    <Table.Row key={key}>
                         <Table.Cell>{task.id}</Table.Cell>
                         <Table.Cell>{task.name}</Table.Cell>
                         <Table.Cell>{task.description}</Table.Cell>
@@ -101,6 +101,26 @@ class TasksComponent extends Component {
          }
          </Table.Body>
         </Table>
+        <Feed>
+        { this.props.task.tasks.map((task, key) => {
+                  return (
+                    <Feed.Event>
+                  <Feed.Label icon='pencil' />
+                  <Feed.Content date={task.name} summary={task.description} />
+
+                <Feed.Meta>
+                      <Feed.Like>
+                        <Icon name='like' />
+                        {task.id} Likes
+                      </Feed.Like>
+                    </Feed.Meta>
+                    </Feed.Event>
+                   )
+                  })
+        }
+
+
+  </Feed>
        </Container>
     )
   }
@@ -124,4 +144,3 @@ const mapDispatchToProps = dispatch => {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TasksComponent)
-
