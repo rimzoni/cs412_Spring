@@ -11,8 +11,8 @@ class UserTable extends Component {
 
     render () {
       return (
-      <Table >
-       <Table.Header>
+      <Table>
+      <Table.Header>
         <Table.Row>
          <Table.HeaderCell>Id</Table.HeaderCell>
          <Table.HeaderCell>Name</Table.HeaderCell>
