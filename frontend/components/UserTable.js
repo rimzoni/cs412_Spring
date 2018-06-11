@@ -24,9 +24,9 @@ class UserTable extends Component {
         { this.state.users.map((user, key) => {
                   return (
                      <Table.Row key={key}>
-                       <Table.Cell>{user.id}</Table.Cell>
-                       <Table.Cell>{user.name}</Table.Cell>
-                       <Table.Cell>{user.email}</Table.Cell>
+                       <Table.Cell></Table.Cell>
+                       <Table.Cell></Table.Cell>
+                       <Table.Cell></Table.Cell>
                        <Table.Cell><Link to={'/user/edit/'+user.id}>edit</Link></Table.Cell>
                      </Table.Row>
                    )
