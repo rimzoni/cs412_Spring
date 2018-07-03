@@ -7,6 +7,7 @@ const stripe = require('./stripeConf')
 
 var User = require('./user')
 var Task = require('./task')
+var Cars = require('./cars')
 // add
 let uuid = require('node-uuid')
 const bcrypt = require('bcrypt')
@@ -287,6 +288,51 @@ app.get('/task/delete', (req, res) => {
     res.status(500).json({error: true, data: {error: err, message: err.message}})
   })
 })
+
+// cars routes
+// http://localhost:3000/cars
+app.get('/cars', (req, res) => {
+	Cars.all()
+		.then(function (cars) {
+		  res.status(200)
+			.json(cars)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+// http://localhost:3000/cars/model
+app.get('/cars/model', (req, res) => {
+  //console.log(req.query.name)
+  Task.byModel(req.query.model)
+		.then(function (cars) {
+		  res.status(200)
+			.json(cars)
+		})
+		.catch(function (err) {
+			console.log(err)
+			res.status(500).json({error: true, data: {error: err,
+        message: err.message}});
+		  })
+})
+// http://localhost:3000/cars/id
+app.get('/cars/id', (req, res) => {
+	// console.log(req.query.id);
+  let carsId = req.query.id
+  Task.forge({id: carsId}).fetch().then(function (tasks) {
+    if (!cars) {
+      return res.status(404).json({ error: true, message: 'car not found' })
+    } else {
+      res.status(200).json(cars)
+    }
+  }).catch((err) => {
+    console.log(err)
+    res.status(500).json({error: true, data: {error: err, message: err.message}})
+  })
+})
+
 // payment
 app.get('/payment/stripe', (req, res) => {
   res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
