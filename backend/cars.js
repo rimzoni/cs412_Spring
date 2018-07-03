@@ -9,11 +9,7 @@ class Cars extends bookshelf.model.Model {
   static byID(id) {
     return this.forge().query({where:{ 'ID': id }}).fetch()
   }
-  static byModel(status) {
+  static byModel(model) {
     return this.forge().query({where:{ 'Model': model }}).fetchAll()
-  }
-  static byColor(userId) {
-    return this.forge().query({where:{ 'Color': color }}).fetchAll()
-  }
 }
 module.exports = Cars
