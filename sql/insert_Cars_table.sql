@@ -1,0 +1,5 @@
+INSERT INTO public.Cars("ID", "Model", "Color") VALUES(1, 'Audi A1', 'Blue')
+INSERT INTO public.Cars("ID", "Model", "Color") VALUES(1, 'Audi A3', 'Red')
+INSERT INTO public.Cars("ID", "Model", "Color") VALUES(1, 'Audi A4', 'White')
+INSERT INTO public.Cars("ID", "Model", "Color") VALUES(1, 'Audi A5', 'Black')
+INSERT INTO public.Cars("ID", "Model", "Color") VALUES(1, 'Audi A6', 'Purple')
