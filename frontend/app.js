@@ -8,6 +8,7 @@ import UserGrid from './components/UserGrid'
 import UserDetail from './components/UserDetail'
 import Dashboard from './components/Dashboard'
 import Custom from './components/Custom'
+import carsGrid from './components/carsGrid'
 import TasksComponent from './components/Tasks'
 import TaskDetail from './components/TaskDetail'
 import LoginPage from './components/LoginPage'
@@ -36,14 +37,14 @@ class App extends React.Component {
             <Route location={location} path='/' exact component={Dashboard} />
             <Route location={location} path='/users' exact component={UserGrid} />
             <Route location={location} path='/user/:type/:userId?' exact component={UserDetail} />
-
             <Route location={location} path='/custom' exact component={Custom} />
-            {this.props.loginProps.logged && 
+            <Route location={location} path='/carsGrid' exact component={carsGrid} />
+            {this.props.loginProps.logged &&
               <div>
                 <Route location={location} path='/tasks' exact component={TasksComponent} />
                 <Route location={location} path='/task/:taskId' exact component={TaskDetail} />
               </div>}
-          
+
             <Route location={location} path='/login' exact component={LoginPage} />
             <Route location={location} path='/signup' exact component={SignupPage} />
 
