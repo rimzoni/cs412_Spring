@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/rimzoni/cs412_Spring#readme",
   "dependencies": {
-    "bcrypt": "^2.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "bookshelf": "^0.12.1",
     "cors": "^2.8.4",
